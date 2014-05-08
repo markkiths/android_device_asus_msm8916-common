@@ -162,7 +162,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.qmi.adb_logmask=0 \
-    ro.qualcomm.cabl=0
+    ro.qualcomm.cabl=2
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
