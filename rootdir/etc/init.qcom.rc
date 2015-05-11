@@ -708,6 +708,12 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
     start imscmservice
 
+service per_mgr /system/vendor/bin/pm-service
+    class core
+    user system
+    group system net_raw
+    writepid /dev/cpuset/system-background/tasks
+
 # FM
 on property:hw.fm.init=0
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
