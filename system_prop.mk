@@ -160,7 +160,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.dont_use_dsd=true \
     persist.radio.flexmap_type=dds \
     persist.radio.multisim.config=dsds \
-    rild.libargs=-d /dev/smd0 \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     ro.telephony.call_ring.multiple=false \
