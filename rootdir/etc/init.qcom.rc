@@ -697,11 +697,6 @@ service rmt_storage /vendor/bin/rmt_storage
     writepid /dev/cpuset/system-background/tasks
     shutdown critical
 
-service rfs_access /vendor/bin/rfs_access
-   class core
-   user system
-   group system net_raw
-
 service hciattach /vendor/bin/init.qcom.bt.sh
     class late_start
     user bluetooth
