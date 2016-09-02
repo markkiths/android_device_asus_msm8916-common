@@ -19,7 +19,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sdk.ssr=false \
     vendor.audio.tunnel.encode=false \
     vendor.voice.path.for.pcm.voip=true \
-    vidc.enc.narrow.searchrange=1 \
     vendor.voice.playback.conc.disabled=true \
     vendor.voice.record.conc.disabled=false \
     vendor.voice.voip.conc.disabled=true \
@@ -123,7 +122,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.sec.smoothstreaming=true \
     mmp.enable.3g2=true \
-    vendor.mediacodec.binder.size=6
+    vendor.mediacodec.binder.size=6 \
+    vendor.vidc.enc.narrow.searchrange=1 \
+    vendor.vidc.enc.disable.pq=true
 
 # Netmgrd
 PRODUCT_PROPERTY_OVERRIDES += \
