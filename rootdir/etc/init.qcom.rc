@@ -877,3 +877,9 @@ on property:sys.boot_completed=1
 on property:vold.decrypt=trigger_restart_framework
     stop camera-provider-2-4
     start camera-provider-2-4
+
+# This fixes broken data connection on netmgrd crash
+on property:sys.boot_completed=1
+    restart ril-daemon
+    restart ril-daemon2
+    restart netmgrd
