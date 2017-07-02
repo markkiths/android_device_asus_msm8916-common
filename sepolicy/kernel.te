@@ -8,3 +8,4 @@ allow kernel fac_file:dir search;
 
 # Used for attaching external SD card block device as mass storage
 allow kernel block_device:blk_file { read write };
+allow kernel block_device:dir search;
