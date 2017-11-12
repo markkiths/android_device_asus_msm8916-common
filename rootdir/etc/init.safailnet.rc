@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Safetynet bypass
+=======
+# SafetyNet bypass
+>>>>>>> b8b6e4bb... A6020: rootdir: Introduce 'SafailNet'
 # Inspired in magisk source code, by topjohnwu
 # Ported to ramdisk by jhenrique09
 

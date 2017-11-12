@@ -281,10 +281,10 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
+    init.safailnet.rc \
     init.target.rc \
     init.qcom.devstart.sh \
     ueventd.qcom.rc \
-    init.safailnet.rc
 
 # Recovery
 PRODUCT_PACKAGES += \
