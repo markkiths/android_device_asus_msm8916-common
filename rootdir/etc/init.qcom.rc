@@ -56,6 +56,9 @@ on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
+    # Start HW service manager early
+    start hwservicemanager
+
     mount_all /vendor/etc/fstab.qcom --early
 
     mkdir /persist/data 0700 system system
@@ -74,6 +77,11 @@ on late-fs
     start bootanim
     start vendor.gralloc-2-0
     start vendor.devstart_sh
+
+    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
+    # In such case, init won't responce the property_set from hwservicemanager and then
+    # cause services for bootanim not running.
+    wait_for_prop hwservicemanager.ready true
 
     mount_all /vendor/etc/fstab.qcom --late
 
