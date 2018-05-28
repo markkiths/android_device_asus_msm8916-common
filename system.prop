@@ -76,6 +76,7 @@ debug.composition.type=c2d
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
+sys.use_fifo_ui=1
 
 # DRM
 drm.service.enabled=true
