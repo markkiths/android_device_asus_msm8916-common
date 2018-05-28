@@ -66,7 +66,7 @@ debug.composition.type=c2d
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
-ro.opengles.version=196608
+sys.use_fifo_ui=1
 
 # DRM
 drm.service.enabled=true
