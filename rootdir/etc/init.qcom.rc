@@ -819,29 +819,10 @@ on charger
     start vm_bms
 
 service ppd /vendor/bin/mm-pp-daemon
-    class late_start
-    disabled
+    class hal
     user system
     socket pps stream 0660 system system
     group system graphics
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
-on property:init.svc.surfaceflinger=restarting
-    stop ppd
-
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
 
 service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
