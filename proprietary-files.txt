@@ -194,9 +194,6 @@ vendor/lib/libchromatix_t4k37r_asus_preview_full.so
 vendor/lib/libchromatix_t4k37r_asus_preview_video.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
 # DIT - Camera Laser
