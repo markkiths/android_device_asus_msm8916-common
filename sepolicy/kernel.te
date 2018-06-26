@@ -5,3 +5,6 @@ allow kernel vfat:file { getattr open };
 allow kernel kernel:capability chown;
 allow kernel fac_file:file { open read };
 allow kernel fac_file:dir search;
+
+# Used for attaching external SD card block device as mass storage
+allow kernel block_device:blk_file { read write };
