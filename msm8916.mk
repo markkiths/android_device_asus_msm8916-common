@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/asus.software.azs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/asus.software.azs.xml \
     $(LOCAL_PATH)/permissions/asus.software.zenui.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/asus.software.zenui.xml \
     $(LOCAL_PATH)/configs/bspcapability.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bspcapability.xml
+    
+# Doze
+PRODUCT_PACKAGES += \
+    ZenfoneDoze
 
 # APEX
 PRODUCT_COPY_FILES += \
