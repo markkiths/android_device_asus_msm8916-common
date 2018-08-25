@@ -41,6 +41,8 @@ ifneq ($(filter msm8909,$(TARGET_BOARD_PLATFORM)),)
 endif
 endif
 
+LOCAL_CFLAGS += -Wno-format
+
 LOCAL_SRC_FILES := \
 	audio_hw.c \
 	voice.c \

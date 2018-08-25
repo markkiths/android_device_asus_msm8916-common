@@ -8,6 +8,7 @@ LOCAL_VENDOR_MODULE           := true
 LOCAL_SHARED_LIBRARIES        := $(common_libs) libui libbinder libqservice
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdutils\" -Wno-float-conversion
 LOCAL_HEADER_LIBRARIES        := generated_kernel_headers display_headers
+LOCAL_CFLAGS += -Wno-format
 LOCAL_SRC_FILES               := profiler.cpp mdp_version.cpp \
                                  idle_invalidator.cpp \
                                  comptype.cpp qd_utils.cpp \
