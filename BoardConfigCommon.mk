@@ -172,6 +172,9 @@ TARGET_USES_OLD_MNC_FORMAT := true
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
 
+# Security patch level
+VENDOR_SECURITY_PATCH := 2018-02-05
+
 # Release tools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_asus
 
