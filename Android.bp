@@ -1,3 +1,6 @@
 subdirs = [
     "sensors",
 ]
+
+soong_namespace {
+}

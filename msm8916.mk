@@ -27,6 +27,10 @@ ifeq ($(shell test -e vendor/gapps/config.mk && echo -n yes), yes)
     $(call inherit-product, vendor/gapps/config.mk)
 endif
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
