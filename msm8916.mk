@@ -17,6 +17,10 @@
 # inherit from the proprietary version
 $(call inherit-product, vendor/asus/msm8916-common/msm8916-common-vendor.mk)
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
