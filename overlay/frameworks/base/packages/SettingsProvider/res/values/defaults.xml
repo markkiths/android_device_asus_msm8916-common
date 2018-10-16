@@ -25,7 +25,7 @@
     <bool name="def_sound_effects_enabled">false</bool>
 
     <!-- Whether Bluetooth should be switched on by default -->
-    <bool name="def_bluetooth_on">false</bool>
+    <bool name="def_bluetooth_on">true</bool>
 
     <!-- 30 seconds for default screen timeout -->
     <integer name="def_screen_off_timeout">30000</integer>
