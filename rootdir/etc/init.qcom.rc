@@ -58,7 +58,6 @@ on init
     write /sys/module/zswap/parameters/max_pool_percent 35
     write /sys/module/zswap/parameters/enabled 1
 
-
     # Enable power-on alarm
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
@@ -70,14 +69,10 @@ on fs
 
     mkdir /persist/data 0700 system system
     restorecon_recursive /persist
-
     restorecon_recursive /asdf
     restorecon_recursive /factory
 
     start qcom-factory
-
-    # Start HW service manager early
-    start hwservicemanager
     
     mount none /vendor/etc/gps.conf /system/etc/gps_debug.conf bind
 
