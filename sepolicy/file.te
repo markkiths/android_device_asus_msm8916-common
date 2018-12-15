@@ -22,3 +22,6 @@ type proc_asusevtlog, fs_type;
 type proc_boot_reason, fs_type;
 
 type camera_db_file, file_type;
+
+# Widevine data file
+type mediadrm_vendor_data_file, file_type, data_file_type;
