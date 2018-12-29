@@ -673,16 +673,16 @@ on property:vendor.bluetooth.hciattach=false
 
 service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
-    user system
+    user radio
     socket ims_qmid stream 0660 system radio
     group radio net_raw log diag
     writepid /dev/cpuset/system-background/tasks
 
 service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
-    user system
+    user radio
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log diag net_admin
+    group wifi radio inet net_raw log diag net_admin
     writepid /dev/cpuset/system-background/tasks
     disabled
 
@@ -691,7 +691,7 @@ on property:sys.ims.QMI_DAEMON_STATUS=1
 
 service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
-   user system
+   user radio
    socket ims_rtpd stream 0660 system radio
    group radio net_raw diag diag inet log
    writepid /dev/cpuset/system-background/tasks
@@ -699,7 +699,7 @@ service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
 
 service imscmservice /vendor/bin/imscmservice
     class main
-    user system
+    user radio
     group radio net_raw diag diag log
     writepid /dev/cpuset/system-background/tasks
     disabled
