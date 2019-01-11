@@ -105,6 +105,8 @@ on post-fs
 
     # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
+    
+    start vendor.qseecomd
 
 on late-fs
     start vendor.devstart_sh
@@ -214,6 +216,8 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
 
     write /sys/kernel/boot_adsp/boot 1
+    
+    start vendor.qseecomd
 
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -832,7 +836,7 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
