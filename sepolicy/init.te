@@ -22,3 +22,6 @@ allow init hwservicemanager:binder { call transfer };
 allow init vendor_toolbox_exec:file execute_no_trans;
 allow init { hidl_base_hwservice hal_authsecret_hwservice }:hwservice_manager add;
 allow init init:process execmem;
+
+# light hal from ZenFone 3
+allow init vendor_file:file execute_no_trans;
