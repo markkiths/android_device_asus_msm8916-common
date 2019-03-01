@@ -259,6 +259,7 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxSwVencHevc \
     libOmxVenc \
+    libOmxVidcCommon \
     libstagefrighthw
 
 # Optimize
