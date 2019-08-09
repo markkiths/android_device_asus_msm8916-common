@@ -1,4 +1,7 @@
 on init
+    # Disable powersaving
+    write /sys/module/lpm_levels/parameters/sleep_disabled 1
+
     # add a cpuset for the camera daemon
     # we want all the little cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -22,7 +25,8 @@ on enable-low-power
     chown system system /dev/cpuset/camera-daemon/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
-    setprop vendor.post_boot.parsed 1
+    # Turn on sleep modes
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
     # Update foreground and background cpusets
     # Reserve CPU 7 for the top app
@@ -35,6 +39,9 @@ on enable-low-power
     rm /data/misc/perfd/default_values
     rm /data/system/perfd/default_values
     start perfd
+
+    # Post-setup services
+    setprop vendor.post_boot.parsed 1
 
 on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
