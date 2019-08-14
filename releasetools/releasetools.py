@@ -20,7 +20,7 @@ def FullOTA_PostValidate(info):
   info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/bootdevice/by-name/system");');
 
 def FullOTA_InstallEnd(info):
-  info.script.AppendExtra('package_extract_file("install/Z010DD/cpuid.sh", "/tmp/install/bin/cpuid.sh");');
+  info.script.AppendExtra('package_extract_file("install/bin/cpuid.sh", "/tmp/install/bin/cpuid.sh");');
   info.script.Mount("/system")
   info.script.AppendExtra('run_program("sbin/sh", "/tmp/install/bin/cpuid.sh");');
   info.script.Unmount("/system")
