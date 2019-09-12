@@ -35,6 +35,19 @@ on early-init
     write /sys/class/leds/lcd-backlight/trigger "backlight"
     write /sys/proc/asusklog "1"
 
+    # Mount debugfs
+    mount debugfs debugfs /sys/kernel/debug
+    chown system system /sys/kernel/debug
+    chmod 0775 /sys/kernel/debug
+
+    symlink /data/tombstones /tombstones
+
+    # Set permissions so radio can read
+    chmod 0444 /proc/cmdline
+
+    setprop ro.hw.device ${ro.boot.device}
+    setprop ro.hw.radio ${ro.boot.radio}
+
 on init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
@@ -45,11 +58,9 @@ on init
     write /sys/module/zswap/parameters/max_pool_percent 35
     write /sys/module/zswap/parameters/enabled 1
 
-    # Set permissions for persist partition
-    mkdir /persist 0771 system system
-    mkdir /firmware 0771 system system
-    mkdir /asdf 0755 system system
-    mkdir /factory 0775 system system
+
+    # Enable power-on alarm
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
