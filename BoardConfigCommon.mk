@@ -140,6 +140,14 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 33554432
 BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USES_MKE2FS := true
 
+# Power
+TARGET_HAS_NO_POWER_STATS := true
+TARGET_HAS_NO_WLAN_STATS := true
+TARGET_USES_INTERACTION_BOOST := true
+
+# Create Root partitions
+BOARD_ROOT_EXTRA_FOLDERS := firmware persist fsg
+
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 MALLOC_SVELTE := true
@@ -208,4 +216,3 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # Tap-to-Wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
-
