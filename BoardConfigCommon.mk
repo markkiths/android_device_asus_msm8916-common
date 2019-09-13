@@ -229,3 +229,5 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # Tap-to-Wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
+
+TARGET_FLATTEN_APEX := true
