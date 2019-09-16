@@ -200,8 +200,11 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common \
+    ims-ext-common_system \
     ims_ext_common.xml \
+
+PRODUCT_BOOT_JARS += \
+    ims-ext-common_system
 
 # IRSC
 PRODUCT_COPY_FILES += \
