@@ -34,4 +34,7 @@
     <!-- Whitelist IMS packages from doze -->
     <allow-in-power-save package="org.codeaurora.ims" />
     <allow-in-power-save package="com.qualcomm.qti.ims" />
+
+    <!-- These are location components that need to freely run in the background -->
+    <allow-implicit-broadcast action="android.intent.action.DROPBOX_ENTRY_ADDED" />
 </config>
