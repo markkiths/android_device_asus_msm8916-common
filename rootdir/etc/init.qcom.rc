@@ -914,3 +914,6 @@ on property:sys.boot_completed=1
     restart ril-daemon
     restart ril-daemon2
     restart netmgrd
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
