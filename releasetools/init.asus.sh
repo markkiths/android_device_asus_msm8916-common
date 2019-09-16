@@ -11,7 +11,7 @@ if [ -f "$cpu_id_file" ]; then
             # Stub
             ;;
         *)
-            rm -f /system/vendor/etc/permissions/android.hardware.opengles.aep.xml
+            rm -f /system/system/vendor/etc/permissions/android.hardware.opengles.aep.xml
             ;;
     esac
 fi
@@ -20,26 +20,26 @@ fi
 # Let's replace /system/etc/mixer_paths_mtp.xml with correct config
 APID=`cat /proc/apid`
 if [ $APID -eq "1" ]; then
-    mv /system/vendor/etc/mixer_paths_mtp_ZE600KL.xml /system/vendor/etc/mixer_paths_mtp.xml
-    rm -f /system/vendor/etc/mixer_paths_mtp_ZD551KL.xml
+    mv /system/system/vendor/etc/mixer_paths_mtp_ZE600KL.xml /system/system/vendor/etc/mixer_paths_mtp.xml
+    rm -f /system/system/vendor/etc/mixer_paths_mtp_ZD551KL.xml
 elif [ $APID -eq "3" ]; then
-    mv /system/vendor/etc/mixer_paths_mtp_ZD551KL.xml /system/vendor/etc/mixer_paths_mtp.xml
-    rm -f /system/vendor/etc/mixer_paths_mtp_ZE600KL.xml
+    mv /system/system/vendor/etc/mixer_paths_mtp_ZD551KL.xml /system/system/vendor/etc/mixer_paths_mtp.xml
+    rm -f /system/system/vendor/etc/mixer_paths_mtp_ZE600KL.xml
 else
-    rm -f /system/vendor/etc/mixer_paths_mtp_ZD551KL.xml
-    rm -f /system/vendor/etc/mixer_paths_mtp_ZE600KL.xml
+    rm -f /system/system/vendor/etc/mixer_paths_mtp_ZD551KL.xml
+    rm -f /system/system/vendor/etc/mixer_paths_mtp_ZE600KL.xml
 fi
 
 # Use proper media_codecs by SOC
 if [ -f "$cpu_id_file" ]; then
     case "$cpu_id" in
         "239" | "241" | "263" | "268" | "269" | "270" | "271")
-            mv /system/vendor/etc/media_codecs_8939.xml /system/vendor/etc/media_codecs.xml
-            mv /system/vendor/etc/media_codecs_performance_8939.xml /system/vendor/etc/media_codecs_performance.xml
+            mv /system/system/vendor/etc/media_codecs_8939.xml /system/system/vendor/etc/media_codecs.xml
+            mv /system/system/vendor/etc/media_codecs_performance_8939.xml /system/system/vendor/etc/media_codecs_performance.xml
             ;;
         *)
-            rm -f /system/vendor/etc/media_codecs_8939.xml
-            rm -f /system/vendor/etc/media_codecs_performance_8939.xml
+            rm -f /system/system/vendor/etc/media_codecs_8939.xml
+            rm -f /system/system/vendor/etc/media_codecs_performance_8939.xml
             ;;
     esac
 fi
