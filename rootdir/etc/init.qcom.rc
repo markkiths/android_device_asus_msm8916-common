@@ -39,8 +39,6 @@ on early-init
     chown system system /sys/kernel/debug
     chmod 0775 /sys/kernel/debug
 
-    symlink /data/tombstones /tombstones
-
     # Set permissions so radio can read
     chmod 0444 /proc/cmdline
 
@@ -205,6 +203,10 @@ on post-fs-data
 
     # Bluetooth
     chown bluetooth bluetooth /persist/.bt_nv.bin
+    
+    mkdir /data/tombstones/modem 0771 system system
+    mkdir /data/tombstones/lpass 0771 system system
+    mkdir /data/tombstones/dsps 0771 system system
 
 on early-boot
     # Set RLIMIT_MEMLOCK to 64MB
