@@ -121,7 +121,8 @@ PRODUCT_COPY_FILES += \
 
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
-    libcnefeatureconfig
+    libcnefeatureconfig \
+    libshims_cne
 
 # DRM
 PRODUCT_PACKAGES += \
