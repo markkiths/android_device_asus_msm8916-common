@@ -6,3 +6,6 @@ allow init proc_driver_audio:file w_file_perms;
 allow init audioserver:process noatsecure;
 allow init hal_audio_default:process noatsecure;
 allow init vm_bms:process noatsecure;
+
+# SELinux : avc:  denied  { add } for interface=android.hardware.drm::IDrmFactory sid=u:r:init:s0 pid=5031 scontext=u:r:init:s0 tcontext=u:object_r:hal_drm_hwservice:s0 tclass=hwservice_manager permissive=0
+allow init hal_drm_hwservice:hwservice_manager add;
