@@ -87,7 +87,10 @@ on late-fs
     start vendor.gralloc-2-0
 
     mount_all /vendor/etc/fstab.qcom --late
-
+on post-fs-data
+        # avoid USB crash
+        setprop persist.adb.nonblocking_ffs 0
+        setprop ro.adb.nonblocking_ffs 0
 
 on post-fs
     start qcom-opengles
