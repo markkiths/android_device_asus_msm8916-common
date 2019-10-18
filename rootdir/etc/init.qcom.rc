@@ -808,7 +808,8 @@ service ril-daemon1 /vendor/bin/hw/rild -c 2
 
 service charger /system/bin/charger
     class charger
-    group system graphics
+    user system
+    group system graphics input
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
