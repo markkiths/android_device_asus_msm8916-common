@@ -215,8 +215,10 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # Keystore
+ifneq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     keystore.msm8916
+endif
 
 # Light
 PRODUCT_PACKAGES += \
