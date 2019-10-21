@@ -119,10 +119,16 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Bluetooth
+ifneq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
+else
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-service \
+    libbt-vendor
+endif
 
 # Camera
 PRODUCT_PACKAGES += \
