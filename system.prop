@@ -181,3 +181,6 @@ ro.vendor.build.security_patch=2018-02-05
 
 # WiFi
 wifi.interface=wlan0
+
+# Vulkan
+persist.graphics.vulkan.disable=true
