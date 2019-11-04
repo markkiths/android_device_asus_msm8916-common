@@ -200,9 +200,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ims-ext-common_system \
     ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
-    ims-ext-common_system
+    ims-ext-common_system \
+    telephony-ext
 
 # Touch HAL
 PRODUCT_PACKAGES += \
@@ -329,15 +335,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # System Properties
 $(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
-
-# Telephony packages
-PRODUCT_PACKAGES += \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # TextClassifier
 PRODUCT_PACKAGES += \
