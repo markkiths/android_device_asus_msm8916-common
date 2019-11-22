@@ -76,10 +76,10 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@5.0-impl \
+    android.hardware.audio@6.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@5.0-impl
-    
+    android.hardware.audio.effect@6.0-impl
+
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/aanc_tuning_mixer.txt \
