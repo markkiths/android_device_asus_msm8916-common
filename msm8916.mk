@@ -269,6 +269,8 @@ PRODUCT_PACKAGES += \
     libOmxG711Enc \
     libOmxQcelp13Enc \
     libOmxVdec \
+    libOmxVdecHevc \
+    libOmxSwVencHevc \
     libOmxVenc \
     libstagefrighthw
 
