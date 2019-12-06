@@ -53,7 +53,7 @@ PRODUCT_COPY_FILES += \
     
 # Doze
 PRODUCT_PACKAGES += \
-    ZenfoneDoze
+    AsusDoze
 
 # APEX
 PRODUCT_COPY_FILES += \
