@@ -318,6 +318,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # Telephony-ext
 PRODUCT_PACKAGES += \
+    ims-ext-common \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
