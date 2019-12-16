@@ -487,7 +487,3 @@ bin/time_daemon:vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
-
-# Voice recognition
-vendor/lib/hw/sound_trigger.primary.msm8916.so
-vendor/lib/libsmwrapper.so
