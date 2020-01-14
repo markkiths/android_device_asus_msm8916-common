@@ -3,3 +3,5 @@ sys.thermald.charging.limited           u:object_r:thermald_prop:s0
 tfa9887.                                u:object_r:audio_prop:s0
 qualcomm.bt.                            u:object_r:bluetooth_prop:s0
 persist.vendor.timeadjust               u:object_r:vendor_timekeep_prop:s0
+
+wifi.active.interface u:object_r:exported_wifi_prop:s0 exact string
