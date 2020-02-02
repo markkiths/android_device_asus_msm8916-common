@@ -377,7 +377,7 @@
          size and total memory for the largest lowmemorykiller bucket, and scaled
          proportionally to the smaller buckets. 0 keeps the default. -->
    <integer name="config_lowMemoryKillerMinFreeKbytesAdjust">51200</integer>
- 
+
     <!-- Device configuration adjusting the /proc/sys/vm/extra_free_kbytes
          tunable in the kernel (if it exists).  0 uses the default value chosen by
          ActivityManager.  A positive value  will increase the amount of memory that the
@@ -387,4 +387,36 @@
          or lowmemorykiller.  Directly added to the default value chosen by
          ActivityManager based on screen size. -->
    <integer name="config_extraFreeKbytesAdjust">51200</integer>
+
+    <!-- IP address of the dns server to use if nobody else suggests one -->
+    <string name="config_default_dns_server" translatable="false">1.1.1.1</string>
+
+    <!-- Flag indicating which package name can access the persistent data partition -->
+    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
+
+    <!-- Whether device ignores the RSSNR signal implementation -->
+    <bool name="config_ignoreRssnrSignalLevel">true</bool>
+
+    <!-- Flag indicating whether we should enable smart battery. -->
+    <bool name="config_smart_battery_available">true</bool>
+
+    <!-- Disable rounded corners on windows to improve graphics performance -->
+    <bool name="config_supportsRoundedCornersOnWindows">false</bool>
+
+    <!-- When true, the tethering upstream network follows the current default
+         Internet network (except when the current default network is mobile,
+         in which case a DUN network will be used if required). -->
+    <bool translatable="false" name="config_tether_upstream_automatic">true</bool>
+
+    <!-- Whether device needs to wait for Qualcomm MPCTL service to start
+	 before setting power profiles on boot. -->
+    <bool name="config_waitForMpctlOnBoot">true</bool>
+
+    <!-- The list of components which should be automatically disabled for a specific device. -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+    </string-array>
+
+    <!-- reference volume index for music stream to limit headphone volume and display warning -->
+    <integer name="config_safe_media_volume_index">15</integer>
 </resources>
