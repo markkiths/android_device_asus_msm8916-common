@@ -194,8 +194,9 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void property_override_dual(char const system_prop[], char const vendor_prop[], char const value[])
+void property_override_triple(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
 {
+    property_override(product_prop, value);
     property_override(system_prop, value);
     property_override(vendor_prop, value);
 }
@@ -212,8 +213,8 @@ void vendor_load_properties()
     // Init a dummy BT MAC address, will be overwritten later
     property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
     property_override("ro.debuggable", "0");
-    property_override_dual("ro.build.type", "ro.vendor.build.type", "user");	
-    property_override_dual("ro.build.tags", "ro.vendor.build.tags", "release-keys");
+    property_override_triple("ro.build.type", "ro.system.build.type", "ro.vendor.build.type", "user");	
+    property_override_triple("ro.build.tags", "ro.system.build.tags", "ro.vendor.build.tags", "release-keys");
     check_device();
     init_alarm_boot_properties();
 
@@ -223,11 +224,11 @@ void vendor_load_properties()
     sprintf(p_device, "ASUS_%s", device);
     sprintf(p_carrier, "US-ASUS_%s-WW_%s", device, device);
 
-    property_override_dual("ro.build.description", "ro.vendor.description", b_description);
+    property_override_triple("ro.build.description", "ro.system.build.description", "ro.vendor.description", b_description);
     property_override("ro.product.carrier", p_carrier);
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", b_fingerprint);
-    property_override_dual("ro.product.device", "ro.vendor.product.device", p_device);
-    property_override_dual("ro.product.model", "ro.vendor.product.model", p_model);
+    property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", b_fingerprint);
+    property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", p_device);
+    property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", p_model);
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
     property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
