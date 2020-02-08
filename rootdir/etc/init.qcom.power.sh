@@ -42,14 +42,18 @@ case "$soc_id" in
         echo 30 > /proc/sys/kernel/sched_mostly_idle_load
         echo 3 > /proc/sys/kernel/sched_mostly_idle_nr_run
 
+        # Disable thermal core_control to update scaling_min_freq
+        echo 0 > /sys/module/msm_thermal/core_control/enabled
+
         # Enable governor
         echo 1 > /sys/devices/system/cpu/cpu0/online
         echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-        echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+        echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
         # Enable thermal core_control now
+        echo 1 > /sys/module/msm_thermal/core_control/enabled
         echo 85 > /sys/module/msm_thermal/parameters/core_limit_temp_degC
-        echo 75 > /sys/module/msm_thermal/parameters/limit_temp_degC
+        echo 80 > /sys/module/msm_thermal/parameters/limit_temp_degC
         echo Y > /sys/module/msm_thermal/parameters/enabled
 
         echo "25000 1094400:50000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
@@ -57,8 +61,10 @@ case "$soc_id" in
         echo 30000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
         echo 998400 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-        echo "1 200000:10 400000:20 533000:33 800000:50 998400:70 1094400:75 1152000:80" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+        echo "1 200000:37 400000:48 533333:56 800000:63 998400:69 1094400:77 1152000:83 1209600:90" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
         echo 50000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+        echo 50000 > /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis
+        echo 60000 > /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
 
         # Bring up all cores online
         echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -104,18 +110,20 @@ case "$soc_id" in
         echo 40 >/sys/class/devfreq/gpubw/bw_hwmon/io_percent
         echo cpufreq > /sys/class/devfreq/mincpubw/governor
 
+        # Disable thermal core_control to update interactive gov settings
+        echo 0 > /sys/module/msm_thermal/core_control/enabled
 
         # Enable governor for perf cluster
         echo 1 > /sys/devices/system/cpu/cpu0/online
         echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-        echo "20000 1113600:50000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
-        echo 85 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+        echo "20000 400000:27000 800000:40000 960000:50000 1113600:65000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+        echo 97 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
         echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
-        echo 1113600 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+        echo 998400 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-        echo "1 200000:10 400000:20 800000:50 960000:85 1113600:90 1344000:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+        echo "5 400000:35 800000:65 960000:85 1113600:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
         echo 50000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
-        echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+        echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
         # Enable governor for power cluster
         echo 1 > /sys/devices/system/cpu/cpu4/online
@@ -123,17 +131,17 @@ case "$soc_id" in
         echo "25000 800000:50000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
         echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
-        echo 998400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
+        echo 800000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-        echo "1 200000:10 400000:20 533000:33 800000:50 998400:70 1094400:75 1152000:80" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+        echo "1 800000:90" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
-        echo 200000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+        echo 499200 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
         # Enable thermal core_control now
+        echo 1 > /sys/module/msm_thermal/core_control/enabled
         echo 85 > /sys/module/msm_thermal/parameters/core_limit_temp_degC
-        echo 75 > /sys/module/msm_thermal/parameters/limit_temp_degC
+        echo 80 > /sys/module/msm_thermal/parameters/limit_temp_degC
         echo Y > /sys/module/msm_thermal/parameters/enabled
-
 
         # Bring up all cores online
         echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -200,10 +208,13 @@ esac
 
 case $soc_id in
     "206" | "247" | "248" | "249" | "250" | "233" | "240" | "242")
-        setprop ro.min_freq_0 800000
+        setprop ro.min_freq_0 200000
+        setprop ro.min_freq_1 200000
+        setprop ro.min_freq_2 200000
+        setprop ro.min_freq_3 200000
     ;;
     "239" | "241" | "263" | "268" | "269" | "270" | "271")
-        setprop ro.min_freq_0 960000
+        setprop ro.min_freq_0 200000
         setprop ro.min_freq_4 800000
     ;;
 esac
@@ -222,6 +233,9 @@ esac
 # Set ALMK parameters (usually above the highest minfree values)
 # 32 bit will have 53K & 64 bit will have 81K
 #
+
+MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+MemTotal=${MemTotalStr:16:8}
 
 # Read adj series and set adj threshold for PPR and ALMK.
 # This is required since adj values change from framework to framework.
@@ -253,4 +267,3 @@ elif [ $MemTotal -lt 1048576 ]; then
     echo "18432,23040,27648,32256,36864,46080" > /sys/module/lowmemorykiller/parameters/minfree
     echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 fi
-
