@@ -687,12 +687,12 @@ case "$target" in
                 echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
 
-                echo "25000 1094400:50000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+                echo "19000 1363200:29000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
                 echo 90 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
                 echo 30000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-                echo 998400 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+                echo 1209600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "1 800000:85 998400:90 1094400:80" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+                echo "1 200000:10 400000:20 533000:33 800000:50 998400:70 1094400:75 1152000:80 1209600:90" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
                 echo 50000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 50000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
 

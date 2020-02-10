@@ -266,6 +266,9 @@ PRODUCT_PACKAGES += \
     init.qcom.devstart.sh \
     ueventd.qcom.rc \
     init.safailnet.rc
+# Reduce post boot lags
+PRODUCT_PACKAGES += \
+    init.boot_boost.sh
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -363,7 +366,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
     $(LOCAL_PATH)/wifi/hostapd.deny:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.deny \
     $(LOCAL_PATH)/wifi/hostapd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \

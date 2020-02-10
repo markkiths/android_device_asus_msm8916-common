@@ -1,5 +1,6 @@
 on enable-low-power
     start post_boot
+
     # enable CPU input boost
     write /sys/module/cpu_boost/parameters/boost_ms 70
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
