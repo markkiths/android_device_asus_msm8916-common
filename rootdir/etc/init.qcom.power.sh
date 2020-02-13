@@ -29,6 +29,7 @@ echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 # HMP scheduler settings for 8916, 8939
 echo 3 > /proc/sys/kernel/sched_window_stats_policy
 echo 3 > /proc/sys/kernel/sched_ravg_hist_size
+echo 1 > /proc/sys/kernel/sched_boost
 
 case "$soc_id" in
     "206" | "247" | "248" | "249" | "250")
@@ -111,19 +112,19 @@ case "$soc_id" in
         echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
         echo "1 200000:10 400000:20 800000:50 960000:85 1113600:90 1344000:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
         echo 50000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
-        echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+        echo 533330 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
         # Enable governor for power cluster
         echo 1 > /sys/devices/system/cpu/cpu4/online
         echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
         echo "25000 800000:50000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-        echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+        echo 95 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
         echo 998400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
         echo "1 200000:10 400000:20 533000:33 800000:50 998400:70 1094400:75 1152000:80" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
-        echo 200000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+        echo 800000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
         # Bring up all cores online
         echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -158,22 +159,24 @@ case "$soc_id" in
         echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
         # Enable core control and set userspace permission
-        echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+        echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
         echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
         echo "1 1 0 0" > /sys/devices/system/cpu/cpu0/core_ctl/always_online_cpu
-        echo 68 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
-        echo 40 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
-        echo 100 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
+        echo 50 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
+        echo 30 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
+        echo 1000 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
         echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/task_thres
         echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster
-        echo 20 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-        echo 5 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
+        echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+        echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
+        echo 35 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
+        echo 20 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
         echo 5000 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
         echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/not_preferred
 
         # HMP scheduler (big.Little cluster related) settings
-        echo 75 > /proc/sys/kernel/sched_upmigrate
-        echo 60 > /proc/sys/kernel/sched_downmigrate
+        echo 90 > /proc/sys/kernel/sched_upmigrate
+        echo 75 > /proc/sys/kernel/sched_downmigrate
     ;;
 esac
 
