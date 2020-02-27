@@ -121,6 +121,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0 \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
     vendor.mediacodec.binder.size=6 \
     vendor.vidc.enc.narrow.searchrange=1 \
     vendor.vidc.enc.disable.pq=true
