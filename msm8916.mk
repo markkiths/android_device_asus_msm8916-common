@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# OpenGapps
+$(call inherit-product, device/asus/msm8916-common/opengapps.mk)
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
