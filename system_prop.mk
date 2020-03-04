@@ -80,6 +80,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
+# Netflix
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.netflix.bsp_rev=Q660-13149-1
+
 # Fling velocities
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.min.fling_velocity=160 \
