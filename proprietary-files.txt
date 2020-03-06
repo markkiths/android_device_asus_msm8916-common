@@ -265,9 +265,7 @@ etc/firmware/Signedrompatch_v30.bin
 
 # GPS - from kipper
 -lib64/libloc_api_v02.so|e32918e3263796819916ecfe2e5d4735758b05a8
--lib64/libloc_ds_api.so|6d2cc2dd6f1435955648fe0626ce79a7b6411416
 -lib/libloc_api_v02.so|42aab2457c678f59c97498a161a42915b3365e12
--lib/libloc_ds_api.so|3a6c1b1393bda6710d64b87a8a96ff561e5d33b1
 vendor/lib64/hw/flp.default.so|22300e06491cb1fdf9bbf8c816d3c789790d09b9
 vendor/lib64/libflp.so|4bd0052875205a4b106169ddd8451e2e0151a7fe
 vendor/lib64/libgeofence.so|5be57ed7ddb8005a06a0779c3104cacaf52f607b
