@@ -15,7 +15,9 @@
 #
 
 # OpenGapps
-$(call inherit-product, device/asus/msm8916-common/opengapps.mk)
+ifeq ($(shell test -e vendor/opengapps/build/opengapps-packages.mk && echo -n yes), yes)
+    $(call inherit-product, device/asus/msm8916-common/opengapps.mk)
+endif
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
