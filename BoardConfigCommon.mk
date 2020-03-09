@@ -123,9 +123,6 @@ HWUI_COMPILE_FOR_PERF := true
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Lineage hardware
 BOARD_HARDWARE_CLASS += \
     $(VENDOR_PATH)/lineagehw
