@@ -100,7 +100,7 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Bluetooth
-ifneq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
+ifeq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service \
@@ -196,7 +196,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # Keystore
-ifneq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
+ifeq ($(filter Z00ED Z00RD,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     keystore.msm8916
 endif
