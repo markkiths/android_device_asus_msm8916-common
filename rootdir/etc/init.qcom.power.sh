@@ -160,6 +160,7 @@ case "$soc_id" in
         # Enable core control and set userspace permission
         echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
         echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
+        echo "1 1 0 0" > /sys/devices/system/cpu/cpu0/core_ctl/always_online_cpu
         echo 68 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
         echo 40 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
         echo 100 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
