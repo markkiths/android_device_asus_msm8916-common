@@ -149,7 +149,7 @@ INTERACTION_BOOST := true
 
 
 # Create Root partitions
-BOARD_ROOT_EXTRA_FOLDERS := firmware persist fsg
+BOARD_ROOT_EXTRA_FOLDERS := firmware persist
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
@@ -191,6 +191,8 @@ USE_OPENGL_RENDERER := true
 # SELinux
 #BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy_tmp
+#include device/qcom/sepolicy-legacy/sepolicy.mk
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
