@@ -28,6 +28,7 @@
 import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.safailnet.rcs
 
 on early-init
     # Turn off backlight on blank
@@ -99,11 +100,14 @@ on post-fs
     write /proc/sys/vm/dirty_expire_centisecs 200
     write /proc/sys/vm/dirty_ratio 40
     write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 30
+    write /proc/sys/vm/swappiness 35
     write /proc/sys/vm/vfs_cache_pressure 65
 
     # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
+
+on late-fs
+    start vendor.devstart_sh
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -725,11 +729,6 @@ service charger /charger
     group log
     seclabel u:r:charger:s0
 
-service vm_bms /vendor/bin/vm_bms
-    class main
-    user root
-    group root wakelock
-
 # Start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class main
@@ -783,7 +782,6 @@ on charger
     chown root system /sys/class/power_supply/bms/voltage_ocv
     chmod 0664 /sys/class/power_supply/bms/current_now
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-    start vm_bms
 
 service ppd /vendor/bin/mm-pp-daemon
     class late_start
@@ -809,6 +807,13 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
+
+service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
+    class main
+    user root
+    group root system
+    oneshot
+    disabled
 
 service wcnss-service /vendor/bin/wcnss_service
     class late_start
@@ -860,3 +865,9 @@ on property:sys.boot_completed=1
 on property:vold.decrypt=trigger_restart_framework
     stop camera-provider-2-4
     start camera-provider-2-4
+
+# This fixes broken data connection on netmgrd crash
+on property:sys.boot_completed=1
+    restart ril-daemon
+    restart ril-daemon2
+    restart netmgrd

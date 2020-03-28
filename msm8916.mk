@@ -64,8 +64,9 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.soundtrigger@2.0-service
+    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.soundtrigger@2.1-service \
+    android.hardware.bluetooth.a2dp@1.0-impl
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -141,6 +142,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
+
+# Dirac
+PRODUCT_PACKAGES += \
+    Dirac
 
 # Display
 PRODUCT_PACKAGES += \
@@ -247,6 +252,10 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-im
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
+# Privapp Whitelist
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
+
 # QMI
 PRODUCT_PACKAGES += \
     libtinyxml
@@ -265,7 +274,9 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    ueventd.qcom.rc
+    init.qcom.devstart.sh \
+    ueventd.qcom.rc \
+    init.safailnet.rc
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -303,7 +314,9 @@ PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # Telephony-ext
 PRODUCT_PACKAGES += \
+    ims-ext-common \
     telephony-ext
+
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
@@ -311,6 +324,10 @@ PRODUCT_BOOT_JARS += \
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 
 # USB HAL
 PRODUCT_PACKAGES += \

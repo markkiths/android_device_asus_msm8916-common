@@ -12,7 +12,7 @@ sys.use_fifo_ui=1
 # Audio
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
-persist.vendor.audio.fluence.speaker=false
+persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicerec=false
 ro.config.vc_call_vol_steps=7
@@ -25,17 +25,20 @@ vendor.audio.tunnel.encode=false
 vendor.voice.path.for.pcm.voip=true
 vidc.enc.narrow.searchrange=1
 vendor.voice.playback.conc.disabled=true
-vendor.voice.record.conc.disabled=false
+vendor.voice.record.conc.disabled=true
 vendor.voice.voip.conc.disabled=true
 vendor.audio_hal.period_size=192
 
 # Audio offload
 audio.offload.min.duration.secs=30
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
 audio.offload.video=true
 av.offload.enable=true
-vendor.audio.av.streaming.offload.enable=true
+vendor.audio.av.streaming.offload.enable=false
 vendor.audio.offload.buffer.size.kb=64
 vendor.audio.offload.gapless.enabled=true
+vendor.audio.dolby.ds2.enabled=true
 
 # Bluetooth
 vendor.qcom.bluetooth.soc=pronto
@@ -51,14 +54,12 @@ ro.qualcomm.bluetooth.opp=true
 ro.qualcomm.bluetooth.pbap=true
 ro.qualcomm.bt.hci_transport=smd
 
-# Boot
-sys.vendor.shutdown.waittime=500
-
 # Camera
 persist.camera.cpp.duplication=false
 camera2.portability.force_api=1
 
 # Display
+debug.hwui.use_buffer_age=false
 debug.egl.hw=0
 debug.enable.sglscale=1
 debug.mdpcomp.idletime=600
@@ -82,6 +83,11 @@ drm.service.enabled=true
 # Fling velocities
 ro.min.fling_velocity=160
 ro.max.fling_velocity=20000
+
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=0
+persist.dbg.wfc_avail_ovr=0
 
 # Google DNS
 net.dns1=1.1.1.1
@@ -159,9 +165,6 @@ rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 ril.subscription.types=NV,RUIM
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9,9
-
-# Shutdown timeout
-ro.build.shutdown_timeout=7
 
 # Time
 persist.timed.enable=true
