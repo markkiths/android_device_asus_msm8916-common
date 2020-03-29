@@ -102,6 +102,7 @@ dhcp.wlan0.dns2=1.0.0.1
 mm.enable.sec.smoothstreaming=true
 mmp.enable.3g2=true
 vendor.mediacodec.binder.size=6
+debug.stagefright.ccodec=0
 
 # Netmgrd
 persist.data.netmgrd.qos.enable=true
