@@ -808,6 +808,11 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
+service adsprpcd /system/vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+
 service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
     user root
