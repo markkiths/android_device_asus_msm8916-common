@@ -836,6 +836,11 @@ service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     oneshot
     disabled
 
+service adsprpcd /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+
 service wcnss-service /vendor/bin/wcnss_service
     class late_start
     user system
