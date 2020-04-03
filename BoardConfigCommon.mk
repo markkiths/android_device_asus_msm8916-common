@@ -123,9 +123,6 @@ DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
-# Keymaster
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
