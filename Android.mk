@@ -71,18 +71,6 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 MSM8916_SYMLINKS += $(MODEM_SYMLINKS)
 
-VENUS_IMAGES := \
-    venus.b00 venus.b01 venus.b02 venus.b03 venus.b04 venus.mdt
-
-VENUS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(VENUS_IMAGES)))
-$(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Venus firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-MSM8916_SYMLINKS += $(VENUS_SYMLINKS)
-
 WV_IMAGES := \
     widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
 
