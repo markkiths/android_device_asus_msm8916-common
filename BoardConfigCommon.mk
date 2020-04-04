@@ -174,7 +174,6 @@ TARGET_BOOTANIMATION_HALF_RES := true
 
 # Release tools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_asus
-TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)/releasetools
 
 # Render
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -228,4 +227,3 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # Tap-to-Wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-5/5-0038/dclick_mode"
-
