@@ -1,0 +1,4 @@
+# AdvancedControls
+type sysfs_kcal, fs_type, sysfs_type;
+type sysfs_intelli, fs_type, sysfs_type;
+

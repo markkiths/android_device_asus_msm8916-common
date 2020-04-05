@@ -31,3 +31,8 @@
 
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.8916                          u:object_r:hal_power_default_exec:s0
+
+# AdvancedControls
+/sys/devices/platform/kcal_ctrl.0(/.*)?                                 u:object_r:sysfs_kcal:s0
+/sys/module/msm_thermal/parameters/(/.*)?                                 u:object_r:sysfs_intelli:s0
+

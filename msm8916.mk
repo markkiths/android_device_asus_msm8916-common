@@ -53,6 +53,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/bspcapability.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bspcapability.xml \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
 
+# AdvancedControls
+RODUCT_PACKAGES += AdvancedControls
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm8916 \

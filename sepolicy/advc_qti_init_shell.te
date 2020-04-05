@@ -1,0 +1,5 @@
+# AdvancedControls
+allow qti_init_shell sysfs_kcal:dir search;
+allow qti_init_shell sysfs_kcal:file rw_file_perms;
+allow qti_init_shell sysfs_intelli:dir search;
+allow qti_init_shell sysfs_intelli:file rw_file_perms;
