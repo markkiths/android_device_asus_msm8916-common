@@ -1,4 +1,4 @@
-package com.thht.settings.device;
+package com.lineageos.settings.device;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.util.Log;
 
 import java.util.List;
 
-public class KcalScreenValuePreference extends SeekBarDialogPreference implements
+public class KcalScreenHuePreference extends SeekBarDialogPreference implements
         SeekBar.OnSeekBarChangeListener {
 
     private SeekBar mSeekBar;
@@ -28,14 +28,14 @@ public class KcalScreenValuePreference extends SeekBarDialogPreference implement
     private Button mMinusOneButton;
     private Button mRestoreDefaultButton;
     
-    private static final int OFFSET = 128;
-    private static final String FILE_LEVEL = "/sys/devices/platform/kcal_ctrl.0/kcal_val";
-    private static final String DEFAULT_VALUE = "127";
+    private static final int OFFSET = 0;
+    private static final String FILE_LEVEL = "/sys/devices/platform/kcal_ctrl.0/kcal_hue";
+    private static final String DEFAULT_VALUE = "0";
 
-    public KcalScreenValuePreference(Context context, AttributeSet attrs) {
+    public KcalScreenHuePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         mMinValue = 0;
-        mMaxValue = 255;
+        mMaxValue = 1536;
         setDialogLayoutResource(R.layout.preference_dialog_kcal);
     }
 
@@ -103,7 +103,7 @@ public class KcalScreenValuePreference extends SeekBarDialogPreference implement
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_KCAL_SCR_VAL, DEFAULT_VALUE);
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_KCAL_SCR_HUE, DEFAULT_VALUE);
         String value = String.valueOf(translate(Integer.parseInt(storedValue), false));
         Utils.writeValue(FILE_LEVEL, value);
     }
@@ -131,7 +131,7 @@ public class KcalScreenValuePreference extends SeekBarDialogPreference implement
             final int value = mSeekBar.getProgress() + mMinValue;
             setValue(String.valueOf(value));
             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-            editor.putString(DeviceSettings.KEY_KCAL_SCR_VAL, String.valueOf(value));
+            editor.putString(DeviceSettings.KEY_KCAL_SCR_HUE, String.valueOf(value));
             editor.commit();
         } else {
             restoreOldState();

@@ -1,4 +1,4 @@
-package com.thht.settings.device;
+package com.lineageos.settings.device;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.util.Log;
 
 import java.util.List;
 
-public class IntelliTempPreference extends SeekBarDialogPreference implements
+public class IntelliCorePreference extends SeekBarDialogPreference implements
         SeekBar.OnSeekBarChangeListener {
 
     private SeekBar mSeekBar;
@@ -29,10 +29,10 @@ public class IntelliTempPreference extends SeekBarDialogPreference implements
     private Button mRestoreDefaultButton;
 
     private static final int OFFSET = 0;
-    private static final String FILE_LEVEL = "/sys/module/msm_thermal/parameters/limit_temp_degC";
-    private static final String DEFAULT_VALUE = "77";
+    private static final String FILE_LEVEL = "/sys/module/msm_thermal/parameters/core_limit_temp_degC";
+    private static final String DEFAULT_VALUE = "85";
 
-    public IntelliTempPreference(Context context, AttributeSet attrs) {
+    public IntelliCorePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         mMinValue = 65;
         mMaxValue = 100;
@@ -103,7 +103,7 @@ public class IntelliTempPreference extends SeekBarDialogPreference implements
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_INTELLI_TEMP, DEFAULT_VALUE);
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_INTELLI_CORE, DEFAULT_VALUE);
         String value = String.valueOf(translate(Integer.parseInt(storedValue), false));
         Utils.writeValue(FILE_LEVEL, value);
     }
@@ -131,7 +131,7 @@ public class IntelliTempPreference extends SeekBarDialogPreference implements
             final int value = mSeekBar.getProgress() + mMinValue;
             setValue(String.valueOf(value));
             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-            editor.putString(DeviceSettings.KEY_INTELLI_TEMP, String.valueOf(value));
+            editor.putString(DeviceSettings.KEY_INTELLI_CORE, String.valueOf(value));
             editor.commit();
         } else {
             restoreOldState();

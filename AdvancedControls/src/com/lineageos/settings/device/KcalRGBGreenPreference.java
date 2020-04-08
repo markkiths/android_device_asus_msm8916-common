@@ -1,4 +1,4 @@
-package com.thht.settings.device;
+package com.lineageos.settings.device;
 
 import android.content.ContentResolver;
 import android.content.Context;

@@ -16,6 +16,7 @@
 <resources>
     <string name="app_name">AdvancedControls</string>
     <string name="advanced_settings">AdvancedControls</string>
+    <string name="advanced_settings_summary">Color Control</string>
     <string name="category_screen_color">Screen Color</string>
     <string name="rgb_red">Red</string>
     <string name="rgb_blue">Blue</string>

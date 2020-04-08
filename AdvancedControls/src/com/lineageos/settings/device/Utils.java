@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.thht.settings.device;
+package com.lineageos.settings.device;
 
 import java.io.File;
 import java.io.FileNotFoundException;

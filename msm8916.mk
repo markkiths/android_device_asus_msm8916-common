@@ -54,7 +54,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
 
 # AdvancedControls
-RODUCT_PACKAGES += AdvancedControls
+PRODUCT_PACKAGES += AdvancedControls
 
 # Audio
 PRODUCT_PACKAGES += \

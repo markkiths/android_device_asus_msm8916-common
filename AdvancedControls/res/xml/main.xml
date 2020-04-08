@@ -36,42 +36,42 @@ xmlns:app="http://schemas.android.com/tools">
     <PreferenceCategory
         android:title="@string/category_screen_color"
         android:key="key_screen_color">
-        <com.thht.settings.device.KcalRGBRedPreference
+        <com.lineageos.settings.device.KcalRGBRedPreference
             android:key="rgb_red"
             android:title="@string/rgb_red" />
-        <com.thht.settings.device.KcalRGBGreenPreference
+        <com.lineageos.settings.device.KcalRGBGreenPreference
             android:key="rgb_green"
             android:title="@string/rgb_green" />
-        <com.thht.settings.device.KcalRGBBluePreference
+        <com.lineageos.settings.device.KcalRGBBluePreference
             android:key="rgb_blue"
             android:title="@string/rgb_blue" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/category_kcal_extras"
         android:key="key_kcal_extras">
-        <com.thht.settings.device.KcalRGBMinPreference
+        <com.lineageos.settings.device.KcalRGBMinPreference
             android:key="rgb_min"
             android:title="@string/rgb_min" />
-        <com.thht.settings.device.KcalSatIntensityPreference
+        <com.lineageos.settings.device.KcalSatIntensityPreference
             android:key="sat_intensity"
             android:title="@string/sat_intensity" />
-        <com.thht.settings.device.KcalScreenHuePreference
+        <com.lineageos.settings.device.KcalScreenHuePreference
             android:key="scr_hue"
             android:title="@string/scr_hue" />
-        <com.thht.settings.device.KcalScreenValuePreference
+        <com.lineageos.settings.device.KcalScreenValuePreference
             android:key="scr_val"
             android:title="@string/scr_val" />
-        <com.thht.settings.device.KcalScreenContrPreference
+        <com.lineageos.settings.device.KcalScreenContrPreference
             android:key="scr_cont"
             android:title="@string/scr_cont" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/category_intellithermal"
         android:key="key_intelli_settings">
-        <com.thht.settings.device.IntelliTempPreference
+        <com.lineageos.settings.device.IntelliTempPreference
             android:key="intelli_temp"
             android:title="@string/freq_temp" />
-        <com.thht.settings.device.IntelliCorePreference
+        <com.lineageos.settings.device.IntelliCorePreference
             android:key="intelli_core_temp"
             android:title="@string/core_temp" />
     </PreferenceCategory>
