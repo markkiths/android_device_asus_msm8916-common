@@ -147,7 +147,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.trim_empty_percent=100 \
     ro.vendor.qti.sys.fw.trim_cache_percent=100 \
     ro.vendor.qti.sys.fw.trim_enable_memory=1073741824 \
-    sys.use_fifo_ui=1
 
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
