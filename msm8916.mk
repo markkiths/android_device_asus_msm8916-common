@@ -405,7 +405,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
     libwpa_client \
-    wificond
+    wificond \
+    WifiOverlay
 
 PRODUCT_PACKAGES += \
     wcnss_service
