@@ -289,6 +289,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     sensors.msm8916
 
+# System Properties
+$(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
+
 # Strip debug
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
