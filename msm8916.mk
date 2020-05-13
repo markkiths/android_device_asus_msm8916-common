@@ -327,7 +327,10 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
-# Telephony-ext
+# System Properties
+$(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
+
+# Telephony packages
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
