@@ -57,6 +57,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.enable.sglscale=1 \
     debug.hwui.use_buffer_age=false \
     debug.egl.hw=0 \
     debug.enable.sglscale=1 \
@@ -72,6 +73,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     persist.hwc.mdpcomp.enable=true \
+    persist.hwc.ptor.enable=true \
     ro.opengles.version=196608
 
 # DRM
