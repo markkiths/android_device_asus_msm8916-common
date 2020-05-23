@@ -3,8 +3,8 @@ allow system_app system_data_file:file { open write setattr };
 allow system_app device:chr_file ioctl;
 
 # 4173796E635461736B202337
-allow system_app {storaged wificond perfprofd installd netd vold}:binder call;
+allow system_app { wificond perfprofd installd netd vold }:binder call;
 
 # ndroid.settings
-allow system_app proc_pagetypeinfo:file {read open getattr};
-allow system_app sysfs_zram:file {search read};
+allow system_app proc_pagetypeinfo:file { read open getattr };
+allow system_app sysfs_zram:file read;
