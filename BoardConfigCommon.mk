@@ -185,7 +185,6 @@ USE_OPENGL_RENDERER := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy_tmp
 include device/qcom/sepolicy-legacy/sepolicy.mk
 SELINUX_IGNORE_NEVERALLOWS := true
 
