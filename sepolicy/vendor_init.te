@@ -1,0 +1,1 @@
+allow vendor_init { proc_driver_audio proc proc_extra_free_kbytes }:file write;

@@ -38,9 +38,6 @@ TARGET_USES_64_BIT_BINDER := true
 
 TARGET_BOARD_PLATFORM := msm8916
 
-# Properties
-TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_NO_BOOTLOADER := true
@@ -177,6 +174,9 @@ TARGET_USES_OLD_MNC_FORMAT := true
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
+
+# Security patch level
+VENDOR_SECURITY_PATCH := 2018-02-05
 
 # Release tools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_asus

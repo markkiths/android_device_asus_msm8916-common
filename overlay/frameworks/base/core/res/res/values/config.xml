@@ -97,7 +97,7 @@
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool name="config_wifi_dual_band_support">true</bool>
+    <bool name="config_wifi_dual_band_support">false</bool>
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool name="config_wifi_background_scan_support">true</bool>
@@ -223,11 +223,6 @@
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
-
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up.
-         The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
 
     <!-- Operating volatage for bluetooth controller. 0 by default-->
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
@@ -356,6 +351,10 @@
     <!-- AlwaysOnDisplay  -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- Should the pinner service pin the Home application? -->
     <bool name="config_pinnerHomeApp">true</bool>
 
@@ -413,6 +412,7 @@
     <!-- The list of components which should be automatically disabled for a specific device. -->
     <string-array name="config_deviceDisabledComponents" translatable="false">
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+        <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
 
     <!-- Configuration to support SIM contact batch operation.-->

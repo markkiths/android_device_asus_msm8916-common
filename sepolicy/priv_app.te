@@ -4,3 +4,8 @@ allow priv_app alarm_instance_prop:file read;
 allow priv_app bg_boot_complete_prop:file read;
 allow priv_app bg_daemon_prop:file read;
 allow priv_app bluetooth_prop:file read;
+allow priv_app sysfs_android_usb:file open;
+allow priv_app proc:file { open getattr };
+allow priv_app sysfs:file { read open };
+allow priv_app device:dir open;
+allow priv_app proc_interrupts:file open;

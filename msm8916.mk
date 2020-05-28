@@ -170,6 +170,10 @@ PRODUCT_PACKAGES += \
     izat.conf \
     sap.conf
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+   FlipFlap
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
@@ -292,6 +296,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     sensors.msm8916
 
+# System Properties
+$(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
+
 # Strip debug
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
@@ -354,9 +361,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/wifi/hostapd.deny:system/etc/hostapd/hostapd.deny \
-    $(LOCAL_PATH)/wifi/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
+    $(LOCAL_PATH)/wifi/hostapd.deny:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.deny \
+    $(LOCAL_PATH)/wifi/hostapd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 # Keylayout
