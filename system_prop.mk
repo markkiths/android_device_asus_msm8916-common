@@ -188,3 +188,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Vulkan
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.graphics.vulkan.disable=true
+
+# Zygote preforking
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.device_config.runtime_native.usap_pool_enabled=true
