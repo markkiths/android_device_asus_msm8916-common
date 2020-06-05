@@ -822,6 +822,9 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
+    
+on property:init.svc.qcamerasvr=running
+    restart media
 
 on property:init.svc.media=restarting
     restart qcamerasvr
