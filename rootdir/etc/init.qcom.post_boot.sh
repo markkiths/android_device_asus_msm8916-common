@@ -685,10 +685,7 @@ case "$target" in
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
                 echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-                # enable thermal core_control now
-		echo 85 > /sys/module/msm_thermal/parameters/core_limit_temp_degC
-        	echo 77 > /sys/module/msm_thermal/parameters/limit_temp_degC
-        	echo Y > /sys/module/msm_thermal/parameters/enabled
+                echo 1 > /sys/module/msm_thermal/core_control/enabled
 
                 echo "25000 1094400:50000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
                 echo 90 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
