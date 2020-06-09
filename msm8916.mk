@@ -19,6 +19,13 @@ ifeq ($(shell test -e vendor/opengapps/build/opengapps-packages.mk && echo -n ye
     $(call inherit-product, device/asus/msm8916-common/opengapps.mk)
 endif
 
+# PixelGapps
+ifeq ($(shell test -e vendor/gapps/config.mk && echo -n yes), yes)
+    TARGET_GAPPS_ARCH=arm64
+    TARGET_DENSITY=xhdpi
+    $(call inherit-product, vendor/gapps/config.mk)
+endif
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
