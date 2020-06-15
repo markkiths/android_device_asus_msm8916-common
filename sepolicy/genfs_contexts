@@ -20,3 +20,8 @@ genfscon proc /driver/LaserFocus_ u:object_r:proc_driver_laf:s0
 genfscon proc /asusevtlog u:object_r:proc_asusevtlog:s0
 
 genfscon proc /sys/kernel/boot_reason u:object_r:proc_boot_reason:s0
+
+# Touchscreen
+genfscon sysfs /sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode       u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /sys/bus/i2c/devices/i2c-5/5-0038/glove_mode         u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /sys/bus/i2c/devices/i2c-5/5-0038/keypad_mode        u:object_r:sysfs_touchpanel:s0
