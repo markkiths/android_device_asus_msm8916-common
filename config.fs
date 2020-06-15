@@ -24,3 +24,9 @@ mode: 0775
 user: AID_SYSTEM
 group: AID_SYSTEM
 caps: 0
+
+[asdf/]
+mode: 0777
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
