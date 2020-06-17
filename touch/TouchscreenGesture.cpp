@@ -34,12 +34,12 @@ typedef struct {
 
 // id -> info
 const std::unordered_map<int32_t, GestureInfo> kGestureInfoMap = {
-    {0, {265, "c Letter", 0x10}},
+    {0, {265, "c Letter", 0x04}},
     {1, {266, "e Letter", 0x08}},
-    {2, {267, "s Letter", 0x04}},
+    {2, {267, "s Letter", 0x10}},
     {3, {263, "v Letter", 0x01}},
-    {4, {268, "w Letter", 0x02}},
-    {5, {264, "z Letter", 0x20}},
+    {4, {268, "w Letter", 0x20}},
+    {5, {264, "z Letter", 0x02}},
 };
 
 constexpr const char kControlPath[] = "/sys/bus/i2c/devices/i2c-5/5-0038/gesture_mode";
