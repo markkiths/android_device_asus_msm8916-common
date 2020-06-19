@@ -23,6 +23,7 @@ endif
 ifeq ($(shell test -e vendor/gapps/config.mk && echo -n yes), yes)
     TARGET_GAPPS_ARCH=arm64
     TARGET_DENSITY=xhdpi
+    IS_PHONE=true
     $(call inherit-product, vendor/gapps/config.mk)
 endif
 
