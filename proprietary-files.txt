@@ -470,3 +470,9 @@ vendor/lib/libTimeService.so
 # Voice recognition
 vendor/lib/hw/sound_trigger.primary.msm8916.so
 vendor/lib/libsmwrapper.so
+
+# Widevine
+vendor/bin/move_widevine_data.sh
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
+vendor/lib64/libwvhidl.so
