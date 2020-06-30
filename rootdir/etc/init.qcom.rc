@@ -706,7 +706,7 @@ service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user radio
    socket ims_rtpd stream 0660 system radio
-   group radio net_raw diag diag inet log
+   group radio net_raw diag diag inet log oem_2950
    disabled
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
@@ -715,7 +715,7 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
 service imscmservice /vendor/bin/imscmservice
     class main
     user radio
-    group radio net_raw diag diag log
+    group radio net_raw diag diag log oem_2950
     disabled
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
@@ -725,7 +725,7 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user radio
     socket ims_datad stream 0660 system radio
-    group radio wifi radio inet log diag
+    group radio wifi radio inet log diag oem_2950
     writepid /dev/cpuset/system-background/tasks
     disabled
 
@@ -736,7 +736,7 @@ service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user radio
     socket ims_qmid stream 0660 system radio
-    group radio log diag
+    group radio log diag oem_2950
     writepid /dev/cpuset/system-background/tasks
 
 # FM
