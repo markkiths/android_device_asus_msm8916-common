@@ -93,7 +93,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=0 \
-    persist.dbg.wfc_avail_ovr=0
+    persist.dbg.wfc_avail_ovr=0 \
+    persist.radio.NO_STAPA=1 \
+    persist.radio.ROTATION_ENABLE=1 \
+    persist.radio.VT_CAM_INTERFACE=1 \
+    persist.radio.VT_ENABLE=1 \
+    persist.radio.VT_HYBRID_ENABLE=1
 
 # Google DNS
 PRODUCT_PROPERTY_OVERRIDES += \
