@@ -708,10 +708,17 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
     start imscmservice
 
-service per_mgr /system/vendor/bin/pm-service
+service per_mgr /vendor/bin/pm-service
     class core
     user system
     group system net_raw
+    writepid /dev/cpuset/system-background/tasks
+
+service per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
     writepid /dev/cpuset/system-background/tasks
 
 # FM

@@ -402,7 +402,6 @@ vendor/lib64/libconfigdb.so|2fe46de7e0c9c72e04156e842da7487b387da446
 vendor/lib64/libmdmdetect.so|1c354db8b3b7ab9de2f80a9867dce375869fa26d
 vendor/lib64/liblqe.so|a82a2515b9e59eae010419b0f8b27ddee073902b
 vendor/lib64/libnetmgr.so|f692ba6fdddf2dd37dbaa9d71e983ed934cf2f88
-vendor/lib64/libperipheral_client.so|f05e771b2ad9568e9c8ded01036083bba1a41362
 vendor/lib64/libril-qc-qmi-1.so|3a353a42a1da3ae1c81b3850939962b978455084
 vendor/lib64/libril-qc-radioconfig.so|0117c27403045abc2a1225a6fb10c0da033daa39
 vendor/lib64/libril-qcril-hook-oem.so|a69877b93164229de10260559aa2e02fcd9700f7
@@ -472,3 +471,9 @@ vendor/bin/move_widevine_data.sh
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib64/libwvhidl.so
+
+# Peripheral manager - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.7.0.QDLMIXM
+vendor/bin/pm-proxy|1f216a6f54e9b97c026f3f3bc4d7d441d58d90a7
+vendor/bin/pm-service|8a521f14576d0d2edf03b4500a54379d37e15d4e
+vendor/lib/libperipheral_client.so|b75a6adac094ddcd6ded9415cae83e18d1e7e5d0
+vendor/lib64/libperipheral_client.so|20c8ab21fe28e41f60b59af0ba72de9f6b1996d2
