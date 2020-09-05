@@ -185,6 +185,7 @@ USE_OPENGL_RENDERER := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(VENDOR_PATH)/sepolicy/private
 include device/qcom/sepolicy-legacy/sepolicy.mk
 
 # Dexpreopt
