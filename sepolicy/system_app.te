@@ -5,6 +5,11 @@ allow system_app device:chr_file ioctl;
 # 4173796E635461736B202337
 allow system_app { wificond perfprofd installd netd vold }:binder call;
 
-# ndroid.settings
+# com.android.settings
 allow system_app proc_pagetypeinfo:file { read open getattr };
-allow system_app sysfs_zram:file read;
+allow system_app sysfs_zram:file { read open getattr };
+allow system_app sysfs_zram:dir { search open getattr };
+allow system_app apexd:binder call;
+
+# SELinux
+allow system_app { apex_service system_suspend_control_service }:service_manager find;
