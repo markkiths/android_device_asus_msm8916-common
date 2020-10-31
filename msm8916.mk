@@ -362,7 +362,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine.conf:system/etc/thermal-engine.conf \
 
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
