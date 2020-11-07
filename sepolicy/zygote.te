@@ -1,2 +1,2 @@
 allow zygote system_file:dir mounton;
-allow zygote device:file { write open };
+allow zygote { device proc_cmdline }:file { read write open getattr };

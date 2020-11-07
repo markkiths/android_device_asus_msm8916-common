@@ -5,7 +5,7 @@ allow mediaserver proc_driver_laf:file rw_file_perms;
 
 allow mediaserver proc_asusevtlog:file { w_file_perms getattr };
 
-allow mediaserver system_file:file execmod;
+allow mediaserver { system_file system_lib_file }:file execmod;
 allow mediaserver system_server:unix_stream_socket rw_socket_perms;
 
 allow mediaserver sensorservice_service:service_manager {find};

@@ -1,0 +1,2 @@
+allow installd sysfs_sensors:dir search;
+allow installd sysfs_sensors:lnk_file read;

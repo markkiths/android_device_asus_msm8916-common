@@ -1,11 +1,24 @@
 allow init debugfs:file write;
+allow init debugfs:dir mounton;
 
-allow init sysfs_touchscreen:file setattr;
+allow init { sysfs_touchscreen sysfs_graphics }:file { write setattr open read };
+allow init sysfs_leds:lnk_file read;
 
 allow init proc_driver_audio:file w_file_perms;
 allow init audioserver:process noatsecure;
 allow init hal_audio_default:process noatsecure;
 allow init vm_bms:process noatsecure;
 
-# SELinux : avc:  denied  { add } for interface=android.hardware.drm::IDrmFactory sid=u:r:init:s0 pid=5031 scontext=u:r:init:s0 tcontext=u:object_r:hal_drm_hwservice:s0 tclass=hwservice_manager permissive=0
-allow init hal_drm_hwservice:hwservice_manager add;
+# SELinux
+allow init { hal_drm_hwservice hal_authsecret_hwservice hidl_base_hwservice hal_light_hwservice }:hwservice_manager add;
+
+allow init fac_file:dir mounton;
+allow init fac_file:filesystem { relabelto relabelfrom mount };
+
+allow init hwservicemanager:binder { call transfer };
+
+allow init system_app:process { rlimitinh transition siginh noatsecure };
+allow init system_file:file entrypoint;
+
+allow init asdf_data_file:file mounton;
+allow init asdf_data_file:dir mounton;
