@@ -10,3 +10,5 @@ allow priv_app sysfs:file { read open };
 allow priv_app device:dir open;
 allow priv_app proc_interrupts:file open;
 allow priv_app fac_file:filesystem getattr;
+allow priv_app hal_memtrack_default:binder call;
+allow priv_app hal_memtrack_default:hwservice_manager find;
