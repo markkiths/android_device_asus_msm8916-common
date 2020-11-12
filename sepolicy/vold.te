@@ -6,3 +6,6 @@ allow vold hal_bootctl_hwservice:hwservice_manager find;
 
 allowxperm vold vold_device:blk_file ioctl 0x1271;
 allowxperm vold vold_device:blk_file ioctl BLKROGET;
+
+# For setting read_ahead_kb
+allow vold sysfs_mmc_host:file create_file_perms;
