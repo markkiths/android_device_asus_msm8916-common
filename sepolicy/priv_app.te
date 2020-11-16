@@ -12,3 +12,4 @@ allow priv_app proc_interrupts:file open;
 allow priv_app fac_file:filesystem getattr;
 allow priv_app hal_memtrack_default:binder call;
 allow priv_app hal_memtrack_default:hwservice_manager find;
+allow priv_app hal_memtrack_hwservice:hwservice_manager find;

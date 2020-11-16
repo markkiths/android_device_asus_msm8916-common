@@ -8,3 +8,4 @@ allow kernel vfat:file { getattr open };
 allow kernel kernel:capability chown;
 
 allow kernel fac_file:file { open read };
+allow kernel fac_file:dir search;

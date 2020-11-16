@@ -12,6 +12,9 @@ allow init vm_bms:process noatsecure;
 # SELinux
 allow init { hal_drm_hwservice hal_authsecret_hwservice hidl_base_hwservice hal_light_hwservice }:hwservice_manager add;
 
+allow init mediadrmserver:binder { call transfer };
+allow init init:process execmem;
+
 allow init fac_file:dir mounton;
 allow init fac_file:filesystem { relabelto relabelfrom mount };
 

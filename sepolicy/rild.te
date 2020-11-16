@@ -1,1 +1,2 @@
 allow rild proc_asusevtlog:file rw_file_perms;
+allow rild firmware_file:dir search;
