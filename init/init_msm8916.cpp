@@ -211,6 +211,9 @@ void vendor_load_properties()
 
     // Init a dummy BT MAC address, will be overwritten later
     property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
+    property_override("ro.debuggable", "0");
+    property_override_dual("ro.build.type", "ro.vendor.build.type", "user");	
+    property_override_dual("ro.build.tags", "ro.vendor.build.tags", "release-keys");
     check_device();
     init_alarm_boot_properties();
 
@@ -237,5 +240,5 @@ void vendor_load_properties()
         property_set("ro.opengles.version", "196608");
     } else {
         property_set("ro.opengles.version", "196610");
-    }
+    }	
 }
