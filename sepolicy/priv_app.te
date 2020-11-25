@@ -1,7 +1,5 @@
-allow priv_app { alarm_boot_prop alarm_handled_prop alarm_instance_prop bg_boot_complete_prop bg_daemon_prop bluetooth_prop proc sysfs proc_net }:file { open read getattr };
+allow priv_app { alarm_boot_prop alarm_handled_prop alarm_instance_prop bg_boot_complete_prop bg_daemon_prop bluetooth_prop proc sysfs }:file { open read getattr };
 allow priv_app sysfs_android_usb:file open;
-allow priv_app proc:file { open getattr };
-allow priv_app sysfs:file { read open };
 allow priv_app device:dir open;
 allow priv_app proc_interrupts:file open;
 allow priv_app fac_file:filesystem getattr;

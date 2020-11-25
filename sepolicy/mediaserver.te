@@ -8,8 +8,9 @@ allow mediaserver proc_asusevtlog:file { w_file_perms getattr };
 allow mediaserver { system_file system_lib_file }:file execmod;
 allow mediaserver system_server:unix_stream_socket rw_socket_perms;
 
-allow mediaserver sensorservice_service:service_manager {find};
-allow mediaserver hal_lineage_camera_motor_hwservice:hwservice_manager {find};
+allow mediaserver { sensorservice_service sensor_privacy_service }:service_manager find;
+allow mediaserver { hal_lineage_camera_motor_hwservice hal_camera_hwservice fwk_camera_hwservice hidl_base_hwservice }:hwservice_manager { find add };
+allow mediaserver { cameraproxy_service cameraserver_service }:service_manager { find add };
 
 r_dir_file(mediaserver, fac_file)
 r_dir_file(mediaserver, persist_file)
