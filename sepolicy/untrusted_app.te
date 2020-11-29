@@ -6,3 +6,5 @@ allow untrusted_app bg_daemon_prop:file read;
 allow untrusted_app runtime_event_log_tags_file:file { open read };
 allow untrusted_app { sysfs_net proc_asound }:dir { read  open search };
 allow untrusted_app { sysfs rootfs proc_vmstat proc_net_tcp_udp }:file { open read getattr };
+allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
+allow untrusted_app hal_memtrack_hwservice:binder call;
