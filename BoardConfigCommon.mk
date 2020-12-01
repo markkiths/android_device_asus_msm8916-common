@@ -109,6 +109,9 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
 
+# Dedupe VNDK libraries with identical core variants.
+TARGET_VNDK_USE_CORE_VARIANT := true
+
 # FM Radio
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 BOARD_HAVE_QCOM_FM := true
