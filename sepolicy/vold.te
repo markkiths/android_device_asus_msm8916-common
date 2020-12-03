@@ -1,8 +1,10 @@
 allow vold persist_file:dir { read };
 
-allow vold asdf_data_file:dir { read };
+allow vold asdf_data_file:dir { read open };
 
-allow vold fac_file:dir { read };
+allow vold fac_file:dir { read open ioctl };
+
+allow vold hal_bootctl_hwservice:hwservice_manager find;
 
 allowxperm vold vold_device:blk_file ioctl 0x1271;
 allowxperm vold vold_device:blk_file ioctl BLKROGET;
