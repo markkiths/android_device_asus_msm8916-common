@@ -1,10 +1,8 @@
 allow system_server sensors_device:chr_file rw_file_perms;
-
 allow system_server sysfs_touchscreen:file rw_file_perms;
-
 allow system_server init:binder call;
-
 allow system_server device:chr_file { open read write };
+allow system_server exfat:dir rw_dir_perms;
 
 r_dir_file(system_server, fac_file)
 r_dir_file(system_server, persist_file)
