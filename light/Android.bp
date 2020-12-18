@@ -18,6 +18,7 @@ cc_binary {
     vendor: true,
     init_rc: ["android.hardware.light@2.0-service.asus_8953.rc"],
     defaults: ["hidl_defaults"],
+    vintf_fragments: ["android.hardware.light@2.0-service.asus_8953.xml"],
     srcs: ["service.cpp", "Light.cpp"],
 
     shared_libs: [
