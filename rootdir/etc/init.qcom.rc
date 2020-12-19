@@ -817,13 +817,13 @@ service vm_bms /vendor/bin/vm_bms
     group root wakelock
 
 # Start camera server as daemon
-service qcamerasvr /vendor/bin/mm-qcamera-daemon
+service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
     
-on property:init.svc.qcamerasvr=running
+on property:init.svc.vendor.qcamerasvr=running
     restart media
 
 on property:init.svc.media=restarting
@@ -921,8 +921,7 @@ on property:init.svc.spk_calibration=stopped
 
 on property:sys.boot_completed=1
     write /proc/boot_completed_prop 1
-    start set_baseband
-    restart cameraserver
+    restart vendor.qcamerasvr
 
     # Disable/Enable UART
     write /proc/driver/audio_debug ${sys.uart.enable}
