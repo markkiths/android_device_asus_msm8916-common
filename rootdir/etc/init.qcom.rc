@@ -79,7 +79,7 @@ on fs
     # Start HW service manager early
     start hwservicemanager
     
-    mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
+    mount none /vendor/etc/gps.conf /system/etc/gps_debug.conf bind
 
 on late-fs
     # Start services for bootanim
