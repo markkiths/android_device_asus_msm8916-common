@@ -1,0 +1,5 @@
+# FastCharge HAL
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.fastcharge@1\.0-service\.usb                   u:object_r:hal_lineage_fastcharge_default_exec:s0
+
+# Sysfs entry for the FastCharge node
+/sys/kernel/fast_charge(/.*)?                           u:object_r:sysfs_fastcharge_switch:s0
