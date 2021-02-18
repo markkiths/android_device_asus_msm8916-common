@@ -691,7 +691,7 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
-service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
@@ -708,7 +708,7 @@ service rfs_access /vendor/bin/rfs_access
    user system
    group system net_raw
 
-service hciattach /system/vendor/bin/init.qcom.bt.sh
+service hciattach /vendor/bin/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin
@@ -814,7 +814,7 @@ service vm_bms /vendor/bin/vm_bms
 
 # Start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
-    class main
+    class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
@@ -877,24 +877,6 @@ service ppd /vendor/bin/mm-pp-daemon
     socket pps stream 0660 system system
     group system graphics
 
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
-on property:init.svc.surfaceflinger=restarting
-    stop ppd
-
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
-
 service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     class main
     user root
@@ -908,7 +890,7 @@ service wcnss-service /vendor/bin/wcnss_service
     group system wifi radio
     oneshot
 
-service post_boot /vendor/bin/init.qcom.post_boot.sh
+service qcom-power /vendor/bin/init.qcom.power.sh
     disabled
     oneshot
 
