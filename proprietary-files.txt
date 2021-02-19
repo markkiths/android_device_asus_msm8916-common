@@ -474,6 +474,8 @@ vendor/lib64/libwvhidl.so
 
 # Peripheral manager - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.7.0.QDLMIXM
 vendor/bin/pm-proxy|1f216a6f54e9b97c026f3f3bc4d7d441d58d90a7
-vendor/bin/pm-service|8a521f14576d0d2edf03b4500a54379d37e15d4e
-vendor/lib/libperipheral_client.so|b75a6adac094ddcd6ded9415cae83e18d1e7e5d0
-vendor/lib64/libperipheral_client.so|20c8ab21fe28e41f60b59af0ba72de9f6b1996d2
+
+# Peripheral manager - from Xperia_AOSP_M_MR1_3.10_v13_legacy
+vendor/bin/pm-service|36b90dc2833761739e85b06f88656fa6abab1f41
+vendor/lib/libperipheral_client.so|36b1373c6ecf311f1f93fd748e843dfe6f073283
+vendor/lib64/libperipheral_client.so|3e74e1cac5a7bc6594f0f156e0719bee36e2d846
