@@ -1,0 +1,2 @@
+add_service(system_server, applock_service);
+allow system_server default_android_service:service_manager { add };
