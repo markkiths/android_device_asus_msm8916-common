@@ -9,3 +9,16 @@ allow init vm_bms:process noatsecure;
 
 # SELinux : avc:  denied  { add } for interface=android.hardware.drm::IDrmFactory sid=u:r:init:s0 pid=5031 scontext=u:r:init:s0 tcontext=u:object_r:hal_drm_hwservice:s0 tclass=hwservice_manager permissive=0
 allow init hal_drm_hwservice:hwservice_manager add;
+allow init mediadrmserver:binder { call transfer };
+
+allow init sysfs:file { read open };
+allow init debugfs:dir mounton;
+allow init asdf_data_file:dir mounton;
+allow init fac_file:dir mounton;
+allow init fac_file:filesystem { mount relabelto relabelfrom };
+allow init sysfs_leds:lnk_file read;
+allow init vendor_file:file execute_no_trans;
+allow init hwservicemanager:binder { call transfer };
+allow init vendor_toolbox_exec:file execute_no_trans;
+allow init { hidl_base_hwservice hal_authsecret_hwservice }:hwservice_manager add;
+allow init init:process execmem;

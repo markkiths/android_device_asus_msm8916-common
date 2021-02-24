@@ -1,0 +1,1 @@
+allow fac_file fac_file:filesystem associate;
