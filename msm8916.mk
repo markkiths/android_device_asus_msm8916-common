@@ -305,6 +305,9 @@ PRODUCT_PACKAGES += \
     librecovery_updater_asus \
     resize2fs_static
 
+# Releasetools
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
