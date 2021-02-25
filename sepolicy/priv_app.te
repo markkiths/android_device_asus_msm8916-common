@@ -4,3 +4,7 @@ allow priv_app alarm_instance_prop:file read;
 allow priv_app bg_boot_complete_prop:file read;
 allow priv_app bg_daemon_prop:file read;
 allow priv_app bluetooth_prop:file read;
+allow priv_app fac_file:filesystem getattr;
+allow priv_app hal_memtrack_default:binder call;
+allow priv_app hal_memtrack_default:hwservice_manager find;
+allow priv_app hal_memtrack_hwservice:hwservice_manager find;

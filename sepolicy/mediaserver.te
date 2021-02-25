@@ -12,6 +12,7 @@ allow mediaserver sensorservice_service:service_manager {find};
 allow mediaserver hal_lineage_camera_motor_hwservice:hwservice_manager {find};
 allow mediaserver system_data_file:sock_file { write unlink };
 allow mediaserver system_lib_file:file execmod;
+allow mediaserver mm-qcamerad:unix_stream_socket connectto;
 
 r_dir_file(mediaserver, fac_file)
 r_dir_file(mediaserver, persist_file)
