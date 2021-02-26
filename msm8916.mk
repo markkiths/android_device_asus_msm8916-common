@@ -288,7 +288,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.opengles.sh \
     init.qcom.power.sh \
-	init.qcom.bt.sh \
+    init.qcom.bt.sh \
     init.qcom.factory.sh
 
 PRODUCT_PACKAGES += \
@@ -380,7 +380,7 @@ PRODUCT_COPY_FILES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
-	android.hardware.vibrator@1.0-service
+    android.hardware.vibrator@1.0-service
 
 # Voice recognition
 PRODUCT_COPY_FILES += \
@@ -394,12 +394,14 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
-    libwpa_client
+    libwpa_client \
+    wificond
 
 PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_PACKAGES += \
+    libwifi-hal-qcom \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf

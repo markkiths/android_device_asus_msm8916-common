@@ -15,7 +15,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter Z00T Z00L Z010D Z00ED Z00RD,$(TARGET_DEVICE)),)
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -94,6 +94,20 @@ $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 MSM8916_SYMLINKS += $(VENUS_SYMLINKS)
+
+WCNSS_IMAGES := \
+    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b03 wcnss.b04 wcnss.b05 \
+    wcnss.b06 wcnss.b07 wcnss.b08 wcnss.b09 wcnss.b10 wcnss.b11 \
+    wcnss.mdt
+
+WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
+$(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+MSM8916_SYMLINKS += $(WCNSS_SYMLINKS)
 
 WV_IMAGES := \
     widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
