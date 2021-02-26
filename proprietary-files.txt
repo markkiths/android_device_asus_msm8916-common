@@ -263,9 +263,7 @@ vendor/lib/libgeofence.so|bd34516de3c933d81267822716235c358ab6695d
 vendor/lib/libizat_core.so|8a948e4f2aa38463050c6399f04ecb38564689d6
 vendor/lib/liblbs_core.so|10caf0d54768114cd471c33a1e2dc6385d3c7707
 
-# Graphics
-# Adreno 300 - from crackling
-# Adreno 420 - from kipper
+# Graphics - from Impress_Grip-user 7.1.2 HW1.R1.V09 22 release-keys (AGM A8)
 vendor/lib64/egl/eglsubAndroid.so|9547ccc0123eab77157d126b7795ed64aa1ad9e6
 vendor/lib64/egl/eglSubDriverAndroid.so|c62ab8faaa670a90a6a5736d8244566f68f809ba
 vendor/lib64/egl/libEGL_adreno.so|15722ace1d1f2d798f22897c94b609c642758639
