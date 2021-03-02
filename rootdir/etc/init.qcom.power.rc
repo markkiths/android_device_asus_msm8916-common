@@ -11,7 +11,7 @@ on init
     write /dev/cpuset/camera-daemon/cpus 4-7
 
 on enable-low-power
-    start post_boot
+    start vendor.post_boot
 
     # enable CPU input boost
     write /sys/module/cpu_boost/parameters/boost_ms 70
