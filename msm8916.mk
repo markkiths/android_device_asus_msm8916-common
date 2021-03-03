@@ -298,14 +298,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libtinyxml
 
-# Ramdisk
+# Rootdir
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.qcom.opengles.sh \
     init.qcom.post_boot.sh \
+    init.qcom.devstart.sh \
+    init.qcom.factory.sh \
     init.qcom.bt.sh \
-    init.program_bdaddr.sh \
-    init.qcom.factory.sh
+    init.program_bdaddr.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
@@ -313,7 +313,6 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
-    init.qcom.devstart.sh \
     ueventd.qcom.rc
 
 # Recovery
