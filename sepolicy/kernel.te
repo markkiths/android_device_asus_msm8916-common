@@ -1,5 +1,7 @@
 allow kernel self:capability dac_override;
 allow kernel asdf_data_file:file create_file_perms;
-allow kernel asdf_data_file:dir search;
+allow kernel asdf_data_file:dir { search write };
 allow kernel vfat:file { getattr open };
 allow kernel kernel:capability chown;
+allow kernel fac_file:file { open read };
+allow kernel fac_file:dir search;
