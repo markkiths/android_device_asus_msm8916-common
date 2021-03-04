@@ -57,7 +57,6 @@ static int camera_device_open(const hw_module_t *module, const char *name,
         hw_device_t **device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
-static int camera_set_torch_mode(const char* camera_id, bool enabled);
 
 static struct hw_module_methods_t camera_module_methods = {
     .open = camera_device_open
@@ -80,7 +79,7 @@ camera_module_t HAL_MODULE_INFO_SYM = {
     .set_callbacks = NULL, /* remove compilation warnings */
     .get_vendor_tag_ops = NULL, /* remove compilation warnings */
     .open_legacy = NULL, /* remove compilation warnings */
-    .set_torch_mode = camera_set_torch_mode,
+    .set_torch_mode = NULL, /* remove compilation warnings */
     .init = NULL, /* remove compilation warnings */
     .reserved = {0}, /* remove compilation warnings */
 };
@@ -617,7 +616,7 @@ static int camera_device_open(const hw_module_t *module, const char *name,
         memset(camera_ops, 0, sizeof(*camera_ops));
 
         camera_device->base.common.tag = HARDWARE_DEVICE_TAG;
-        camera_device->base.common.version = CAMERA_MODULE_API_VERSION_2_4;
+        camera_device->base.common.version = CAMERA_MODULE_API_VERSION_1_0;
         camera_device->base.common.module = (hw_module_t *)(module);
         camera_device->base.common.close = camera_device_close;
         camera_device->base.ops = camera_ops;
@@ -678,12 +677,4 @@ static int camera_get_camera_info(int camera_id, struct camera_info *info)
     if (check_vendor_module())
         return 0;
     return gVendorModule->get_camera_info(camera_id, info);
-}
-
-static int camera_set_torch_mode(const char* camera_id, bool enabled)
-{
-    ALOGV("%s", __FUNCTION__);
-    if (check_vendor_module())
-        return 0;
-    return gVendorModule->set_torch_mode(camera_id, enabled);
 }
