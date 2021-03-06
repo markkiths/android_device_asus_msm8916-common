@@ -166,9 +166,9 @@ on post-fs-data
     chown system system /sys/devices/platform/msm_sdcc.4/polling
 
     # Create directories for Location services
-    mkdir /data/misc/location 0770 gps gps
-    mkdir /data/misc/location/mq 0770 gps gps
-    mkdir /data/misc/location/xtwifi 0770 gps gps
+    mkdir /data/vendor/location 0770 gps gps
+    mkdir /data/vendor/location/mq 0770 gps gps
+    mkdir /data/vendor/location/xtwifi 0770 gps gps
 
     # Create directory for IMS services
     mkdir /data/shared 0755 system system
