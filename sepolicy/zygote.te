@@ -2,3 +2,4 @@ allow zygote system_file:dir mounton;
 allow zygote proc_cmdline:file { read open getattr };
 
 get_prop(zygote, exported_camera_prop);
+get_prop(zygote, bluetooth_prop);
