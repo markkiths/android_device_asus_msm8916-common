@@ -23,9 +23,9 @@
     <ctl name="TTY Mode" value="OFF" />
     <ctl name="HPHL Volume" value="9" />
     <ctl name="HPHR Volume" value="9" />
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="84" />
+    <ctl name="RX1 Digital Volume" value="92" />
+    <ctl name="RX2 Digital Volume" value="92" />
+    <ctl name="RX3 Digital Volume" value="92" />
     <ctl name="IIR1 INP1 Volume" value="84" />
     <ctl name="IIR1 INP2 Volume" value="84" />
     <ctl name="IIR1 INP3 Volume" value="84" />
@@ -628,41 +628,41 @@
     <path name="speaker-and-headphones">
         <path name="speaker" />
         <path name="headphones" />
-        <ctl name="RX1 Digital Volume" value="64" />
-        <ctl name="RX2 Digital Volume" value="64" />
+        <ctl name="RX1 Digital Volume" value="92" />
+        <ctl name="RX2 Digital Volume" value="92" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="RX3 MIX1 INP2" value="RX2" />
-        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="RX3 Digital Volume" value="92" />
 	</path>
 
     <path name="speaker-and-headphones-three-poles">
         <path name="speaker" />
         <path name="headphones" />
-        <ctl name="RX1 Digital Volume" value="64" />
-        <ctl name="RX2 Digital Volume" value="64" />
+        <ctl name="RX1 Digital Volume" value="92" />
+        <ctl name="RX2 Digital Volume" value="92" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="RX3 MIX1 INP2" value="RX2" />
-        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="RX3 Digital Volume" value="92" />
     </path>
 
     <path name="speaker-and-headphones-for-ringtone">
         <path name="speaker" />
         <path name="headphones" />
-        <ctl name="RX1 Digital Volume" value="64" />
-        <ctl name="RX2 Digital Volume" value="64" />
+        <ctl name="RX1 Digital Volume" value="92" />
+        <ctl name="RX2 Digital Volume" value="92" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="RX3 MIX1 INP2" value="RX2" />
-        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="RX3 Digital Volume" value="92" />
     </path>
 
     <path name="speaker-and-headphones-three-poles-for-ringtone">
         <path name="speaker" />
         <path name="headphones" />
-        <ctl name="RX1 Digital Volume" value="64" />
-        <ctl name="RX2 Digital Volume" value="64" />
+        <ctl name="RX1 Digital Volume" value="92" />
+        <ctl name="RX2 Digital Volume" value="92" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="RX3 MIX1 INP2" value="RX2" />
-        <ctl name="RX3 Digital Volume" value="78" />
+        <ctl name="RX3 Digital Volume" value="92" />
     </path>
 
     <path name="usb-headphones">
@@ -816,7 +816,7 @@
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RDAC2 MUX" value="RX2" />
-        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX1 Digital Volume" value="92" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
