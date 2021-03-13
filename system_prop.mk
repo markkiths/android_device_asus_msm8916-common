@@ -53,6 +53,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bluetooth.opp=true \
     ro.qualcomm.bluetooth.pbap=true \
     ro.qualcomm.bt.hci_transport=smd
+    
+# AptX
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.bt.enableAptXHD=true \
+    persist.service.btui.use_aptx=1 \
+    persistent.bt.a2dp_offload_cap=sbc-aptx-aptXHD
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \

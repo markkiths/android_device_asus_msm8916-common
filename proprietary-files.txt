@@ -487,3 +487,7 @@ bin/time_daemon:vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
+
+# AptX from https://forum.xda-developers.com/t/port-magisk-aptx-aptx-hd-for-all-oreo-8-0-update-jan-6th-2018.3731151/
+vendor/lib64/libaptX_encoder.so
+vendor/lib64/libaptXHD_encoder.so
