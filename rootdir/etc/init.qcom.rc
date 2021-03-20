@@ -49,6 +49,8 @@ on early-init
     setprop ro.hw.radio ${ro.boot.radio}
 
 on init
+    start program_bdaddr
+
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
     # Configure zram and zswap
@@ -904,6 +906,13 @@ on property:sys.boot_completed=1
 on property:vold.decrypt=trigger_restart_framework
     stop camera-provider-2-4
     start camera-provider-2-4
+
+service program_bdaddr /vendor/bin/init.program_bdaddr.sh
+    user bluetooth
+    group bluetooth
+#    seclabel u:r:bluetooth_loader:s0
+    disabled
+    oneshot
 
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
