@@ -49,8 +49,6 @@ on early-init
     setprop ro.hw.radio ${ro.boot.radio}
 
 on init
-    start program_bdaddr
-
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
     # Configure zram and zswap
@@ -98,6 +96,8 @@ on post-fs-data
         setprop ro.adb.nonblocking_ffs 0
 
 on post-fs
+    start program_bdaddr
+
     # VM tuning
     write /proc/sys/vm/dirty_background_ratio 20
     write /proc/sys/vm/dirty_expire_centisecs 200
