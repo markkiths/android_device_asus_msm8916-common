@@ -1,5 +1,5 @@
 on enable-low-power
-    start qcom-power
+    start post_boot
 
     # enable CPU input boost
     write /sys/module/cpu_boost/parameters/boost_ms 70
