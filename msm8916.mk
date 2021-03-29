@@ -305,6 +305,10 @@ PRODUCT_PACKAGES += \
     init.qcom.devstart.sh \
     ueventd.qcom.rc
 
+# IRQ balance
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_asus \
