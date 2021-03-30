@@ -27,7 +27,6 @@
 
 import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
-import /vendor/etc/init/hw/init.target.rc
 
 on early-init
     # Turn off backlight on blank
@@ -324,12 +323,6 @@ on boot
 
     chown system system /sys/class/optical_sensors/proximity/ps_adc
     chmod 0664 /sys/class/optical_sensors/proximity/ps_adc
-
-    # ZC550Kl Sensor
-    symlink /sys/bus/platform/devices/soc.0/hall_sensor/hall_sensor/status	/data/data/hallsensor_status
-    symlink /sys/bus/platform/devices/soc.0/hall_sensor/hall_sensor/debounce	/data/data/hallsensor_debounce
-    chmod 0600 /data/data/hallsensor_status
-    chmod 0600 /data/data/hallsensor_debounce
 
     chown system system /sys/bus/i2c/devices/0-001f/enable
     chown system system /sys/bus/i2c/devices/0-001f/delay
