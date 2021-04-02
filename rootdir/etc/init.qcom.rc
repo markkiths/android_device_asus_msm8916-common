@@ -886,7 +886,6 @@ on property:init.svc.spk_calibration=stopped
 
 on property:sys.boot_completed=1
     write /proc/boot_completed_prop 1
-    start set_baseband
     start boot_boost
 
     # Disable/Enable UART
