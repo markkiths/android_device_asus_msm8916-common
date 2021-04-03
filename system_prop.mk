@@ -23,8 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.voice.playback.conc.disabled=true \
     vendor.voice.record.conc.disabled=true \
     vendor.voice.voip.conc.disabled=true \
-    vendor.audio_hal.period_size=192 \
-    vendor.audio.pp.asphere.enabled=true
+    vendor.audio_hal.period_size=192
 
 # Audio offload
 PRODUCT_PROPERTY_OVERRIDES += \
