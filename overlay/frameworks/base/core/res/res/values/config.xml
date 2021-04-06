@@ -396,7 +396,4 @@
     -->
     <string name="config_defaultAutofillService" translatable="false">com.google.android.gms/.autofill.service.AutofillService</string>
 
-    <!-- Configuration to support SIM contact batch operation.-->
-    <bool name="config_sim_phonebook_batch_operation">false</bool>
-
 </resources>
