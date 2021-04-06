@@ -122,7 +122,6 @@ PRODUCT_PACKAGES += \
     bspcapability \
     camera.msm8916 \
     libboringssl-compat \
-    libshims_camera \
     Snap
 
 # Connectivity Engine support
