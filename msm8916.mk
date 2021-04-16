@@ -295,6 +295,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.post_boot.sh \
     init.qcom.bt.sh \
+    init.program_bdaddr.sh \
     init.qcom.factory.sh
 
 PRODUCT_PACKAGES += \
