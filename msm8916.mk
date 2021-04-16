@@ -293,7 +293,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.qcom.opengles.sh \
     init.qcom.post_boot.sh \
     init.qcom.bt.sh \
     init.qcom.factory.sh
@@ -303,13 +302,9 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
-    init.target.rc \
     init.qcom.devstart.sh \
     ueventd.qcom.rc \
     init.safailnet.rc
-# Reduce post boot lags
-PRODUCT_PACKAGES += \
-    init.boot_boost.sh
 
 # Recovery
 PRODUCT_PACKAGES += \
