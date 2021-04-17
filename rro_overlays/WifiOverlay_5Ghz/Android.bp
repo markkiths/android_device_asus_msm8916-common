@@ -2,5 +2,5 @@ runtime_resource_overlay {
     name: "WifiOverlay_5Ghz",
     theme: "WifiOverlay_5Ghz",
     sdk_version: "current",
-    product_specific: true
+    proprietary: true
 }
