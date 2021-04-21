@@ -66,7 +66,6 @@ on fs
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
     mount_all /vendor/etc/fstab.qcom --early
-    swapon_all /vendor/etc/fstab.qcom
 
     restorecon_recursive /persist
 
@@ -885,7 +884,6 @@ on property:init.svc.spk_calibration=stopped
 
 on property:sys.boot_completed=1
     write /proc/boot_completed_prop 1
-    start set_baseband
     start boot_boost
 
     # Disable/Enable UART
