@@ -1,6 +1,9 @@
 # ASDF
 /asdf(/.*)?                                                   u:object_r:asdf_data_file:s0
 
+# Bluetooth
+/(vendor|system/vendor)/bin/init\.program_bdaddr\.sh          u:object_r:bluetooth_loader_exec:s0
+
 # Camera
 /system/lib/libarcsoft_panorama_burstcapture\.so              u:object_r:apk_data_file:s0
 /system/lib/libcameraap\.so                                   u:object_r:apk_data_file:s0
@@ -48,6 +51,7 @@
 
 # HALs
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.asus_8953      u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.authsecret@1\.0-service          u:object_r:hal_authsecret_default_exec:s0
 
 # TimeKeep
 /sys/devices/soc\.0/qpnp-rtc-[0-9]/rtc/rtc0(/.*)?                         u:object_r:sysfs_rtc:s0

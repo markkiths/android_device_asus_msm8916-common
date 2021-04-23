@@ -27,7 +27,7 @@
 #define MAX_WAIT_COUNT 10
 #define WAIT_TIME 1000000
 
-#include <cutils/log.h>
+#include <log/log.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <errno.h>
