@@ -283,7 +283,8 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-im
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service-qti \
+    android.hardware.power.stats@1.0-service.mock
 
 # QMI
 PRODUCT_PACKAGES += \
