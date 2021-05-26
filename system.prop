@@ -68,6 +68,7 @@ debug.sf.disable_backpressure=1
 debug.sf.recomputecrop=0
 persist.hwc.mdpcomp.enable=true
 persist.hwc.ptor.enable=true
+persist.hwc.pubypass=true
 debug.sdm.support_writeback=0
 ro.surface_flinger.max_frame_buffer_acquired_buffers=1
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
