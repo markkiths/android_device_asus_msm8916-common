@@ -792,7 +792,7 @@ service vendor.qseecomd /vendor/bin/qseecomd
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service perfd /vendor/bin/perfd
+service vendor.perfd /vendor/bin/perfd
     class late_start
     user root
     group root
