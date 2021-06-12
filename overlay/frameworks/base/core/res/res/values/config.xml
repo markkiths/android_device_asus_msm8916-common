@@ -383,4 +383,6 @@
     <string name="config_defaultAutofillService" translatable="false">com.google.android.gms/.autofill.service.AutofillService</string>
 
     <bool name="config_avoidGfxAccel">true</bool>
+
+    <bool name="config_sf_limitedAlpha">true</bool>
 </resources>
