@@ -1,3 +1,6 @@
+# Silence /dev/stune logspam
+dontaudit domain device:file w_file_perms;
+
 allow domain proc_aphd:file r_file_perms;
 allow domain proc_apid:file r_file_perms;
 allow domain proc_aplte:file r_file_perms;
