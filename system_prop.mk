@@ -163,7 +163,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
-    persist.radio.add_power_save=1 \
+    persist.vendor.radio.add_power_save=1 \
+    persist.vendor.radio.qcril_uim_vcc_feature=1 \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.dont_use_dsd=true \
     persist.radio.flexmap_type=dds \
