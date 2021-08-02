@@ -7,3 +7,4 @@ allow vendor_init system_data_file:lnk_file { create setattr unlink };
 allow vendor_init proc_driver_audio:file write;
 allow vendor_init proc_extra_free_kbytes:file write;
 allow vendor_init fac_file:filesystem getattr;
+allow vendor_init bluetooth_data_file:file setattr;
