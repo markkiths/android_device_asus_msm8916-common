@@ -3,3 +3,4 @@ allow zygote proc_cmdline:file { read open getattr };
 
 get_prop(zygote, exported_camera_prop);
 get_prop(zygote, bluetooth_prop);
+allow zygote theme_prop:file { read open getattr };
