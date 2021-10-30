@@ -69,7 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     debug.sf.disable_backpressure=1 \
-    debug.sf.latch_unsignaled=1 \
     debug.sf.recomputecrop=0 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
