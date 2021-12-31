@@ -45,10 +45,16 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_DTBTOOL_ARGS := -3
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7
+BOARD_KERNEL_CMDLINE +:= console=ttyHSL0,115200,n8
+BOARD_KERNEL_CMDLINE +:= androidboot.console=ttyHSL0
+BOARD_KERNEL_CMDLINE +:= androidboot.hardware=qcom
+BOARD_KERNEL_CMDLINE +:= ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE +:= androidboot.bootdevice=7824900.sdhci
+BOARD_KERNEL_CMDLINE +:= lpm_levels.sleep_disabled=1
+BOARD_KERNEL_CMDLINE +:= loop.max_part=7
 KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/asus/msm8916
