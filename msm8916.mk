@@ -68,6 +68,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    debug.fdsan=0
+
 # Tethering
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
