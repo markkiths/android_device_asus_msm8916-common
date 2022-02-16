@@ -82,4 +82,6 @@
          This MUST NOT be set to true on devices produced in 2016 or later -->
     <bool name="config_trustLegacyEncryption">true</bool>
 
+    <!--Disable LiveDisplay -->
+    <integer name="config_defaultLiveDisplayMode">0</integer>
 </resources>
