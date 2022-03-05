@@ -53,7 +53,7 @@ int getHDMINode(void)
             }
             fclose(displayDeviceFP);
         } else {
-            ALOGE("%s: Failed to open fb node %d", __func__, j);
+            ALOGV("%s: Failed to open fb node %d", __func__, j);
         }
     }
 
