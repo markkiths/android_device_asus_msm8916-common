@@ -51,6 +51,7 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 endif
 KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
+TARGET_KERNEL_CLANG_COMPILE := false
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_HEADER_ARCH := arm64
