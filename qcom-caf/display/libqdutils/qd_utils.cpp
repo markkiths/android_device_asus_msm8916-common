@@ -60,7 +60,7 @@ int getHDMINode(void)
     if (j < HWC_NUM_DISPLAY_TYPES)
         return j;
     else
-        ALOGE("%s: Failed to find HDMI node", __func__);
+        ALOGV("%s: Failed to find HDMI node", __func__);
 
     return -1;
 }
