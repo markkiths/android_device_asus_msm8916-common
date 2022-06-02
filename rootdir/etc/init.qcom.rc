@@ -71,6 +71,10 @@ on fs
     restorecon_recursive /asdf
     restorecon_recursive /factory
 
+    # Avoid USB crash
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
     start qcom-factory
     
     mount none /vendor/etc/gps.conf /system/etc/gps_debug.conf bind
@@ -81,12 +85,9 @@ on late-fs
     start surfaceflinger
     start bootanim
     start vendor.gralloc-2-0
+    start vendor.devstart_sh
 
     mount_all /vendor/etc/fstab.qcom --late
-on post-fs-data
-        # avoid USB crash
-        setprop persist.adb.nonblocking_ffs 0
-        setprop ro.adb.nonblocking_ffs 0
 
 on post-fs
 
@@ -94,9 +95,6 @@ on post-fs
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
     
     start vendor.qseecomd
-
-on late-fs
-    start vendor.devstart_sh
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -189,6 +187,16 @@ on post-fs-data
     mkdir /data/tombstones/modem 0771 system system
     mkdir /data/tombstones/lpass 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
+
+# Start camera server as daemon
+service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet input graphics
+    writepid /dev/cpuset/camera-daemon/tasks
+
+on property:init.svc.vendor.qcamerasvr=running
+    restart media
 
 on early-boot
     # Set RLIMIT_MEMLOCK to 64MB
@@ -774,16 +782,6 @@ service vm_bms /vendor/bin/vm_bms
     class main
     user root
     group root wakelock
-
-# Start camera server as daemon
-service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
-    class late_start
-    user camera
-    group camera system inet input graphics
-    writepid /dev/cpuset/camera-daemon/tasks
-    
-on property:init.svc.vendor.qcamerasvr=running
-    restart media
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
