@@ -281,7 +281,7 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-im
 # Power HAL
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
-    android.hardware.power.stats@1.0-service.mock
+    android.hardware.power.stats@1.0-service.mock \
     vendor.qti.hardware.perf@2.0 \
     vendor.qti.hardware.perf@2.0.vendor
 
@@ -322,6 +322,7 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
+    libshims_ril \
     libxml2
 
 # Seccomp
