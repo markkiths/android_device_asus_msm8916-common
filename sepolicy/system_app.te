@@ -1,6 +1,6 @@
 allow system_app system_data_file:file { open write setattr };
 allow system_app device:chr_file ioctl;
-allow system_app { wificond perfprofd installd netd vold }:binder call;
+allow system_app { wificond installd netd vold }:binder call;
 allow system_app proc_pagetypeinfo:file { read open getattr };
 allow system_app sysfs_zram:file { read open getattr };
 allow system_app sysfs_zram:dir { search open getattr };
