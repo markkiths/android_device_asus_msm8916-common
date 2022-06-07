@@ -138,6 +138,17 @@ void check_device()
     }
 }
 
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
 static void init_alarm_boot_properties()
 {
     int boot_reason;
@@ -162,7 +173,7 @@ static void init_alarm_boot_properties()
      * 7 -> CBLPWR_N pin toggled (for external power supply)
      * 8 -> KPDPWR_N pin toggled (power key pressed)
      */
-    SetProperty("ro.alarm_boot", boot_reason == 3 ? "true" : "false");
+    property_override("ro.alarm_boot", boot_reason == 3 ? "true" : "false");
 }
 
 bool is_target_8916()
@@ -183,17 +194,6 @@ bool is_target_8916()
     return soc_id == 206 || (soc_id >= 247 && soc_id <= 250);
 }
 
-void property_override(char const prop[], char const value[])
-{
-    prop_info *pi;
-
-    pi = (prop_info*) __system_property_find(prop);
-    if (pi)
-        __system_property_update(pi, value, strlen(value));
-    else
-        __system_property_add(prop, strlen(prop), value, strlen(value));
-}
-
 void property_override_triple(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
 {
     property_override(product_prop, value);
@@ -211,7 +211,7 @@ void vendor_load_properties()
         return;
 
     // Init a dummy BT MAC address, will be overwritten later
-    SetProperty("ro.boot.btmacaddr", "00:00:00:00:00:00");
+    property_override("ro.boot.btmacaddr", "00:00:00:00:00:00");
     property_override("ro.debuggable", "0");
     property_override_triple("ro.build.type", "ro.system.build.type", "ro.vendor.build.type", "user");
     property_override_triple("ro.build.tags", "ro.system.build.tags", "ro.vendor.build.tags", "release-keys");
@@ -230,16 +230,16 @@ void vendor_load_properties()
     property_override_triple("ro.product.device", "ro.product.system.device", "ro.product.vendor.device", p_device);
     property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", p_model);
 
-    SetProperty("dalvik.vm.heapstartsize", heapstartsize);
-    SetProperty("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
-    SetProperty("dalvik.vm.heapsize", heapsize);
-    SetProperty("dalvik.vm.heaptargetutilization", "0.75");
-    SetProperty("dalvik.vm.heapminfree", heapminfree);
-    SetProperty("dalvik.vm.heapmaxfree", "8m");
+    property_override("dalvik.vm.heapstartsize", heapstartsize);
+    property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
+    property_override("dalvik.vm.heapsize", heapsize);
+    property_override("dalvik.vm.heaptargetutilization", "0.75");
+    property_override("dalvik.vm.heapminfree", heapminfree);
+    property_override("dalvik.vm.heapmaxfree", "8m");
 
     if (is_target_8916()) {
-        SetProperty("ro.opengles.version", "196608");
+        property_override("ro.opengles.version", "196608");
     } else {
-        SetProperty("ro.opengles.version", "196610");
+        property_override("ro.opengles.version", "196610");
     }
 }
