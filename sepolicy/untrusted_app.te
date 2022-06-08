@@ -3,3 +3,5 @@ allow untrusted_app { sysfs rootfs proc_vmstat proc_net_tcp_udp proc proc_zonein
 allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
 allow untrusted_app hal_memtrack_hwservice:binder call;
 allow untrusted_app app_data_file:file execute_no_trans;
+allow untrusted_app postinstall_mnt_dir:dir getattr;
+allow untrusted_app adbd_prop:file open;
