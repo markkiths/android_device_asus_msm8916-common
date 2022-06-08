@@ -1,2 +1,3 @@
 allow crash_dump init:process ptrace;
 allow crash_dump crash_dump:capability sys_nice;
+allow crash_dump { app_data_file gpu_device hwservicemanager_prop media_variant_prop exported_camera_prop resourcecache_data_file }:file { open read getattr };

@@ -4,4 +4,5 @@ allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
 allow untrusted_app hal_memtrack_hwservice:binder call;
 allow untrusted_app app_data_file:file execute_no_trans;
 allow untrusted_app postinstall_mnt_dir:dir getattr;
-allow untrusted_app adbd_prop:file open;
+allow untrusted_app adbd_prop:file { open getattr };
+allow untrusted_app { alarm_boot_prop alarm_handled_prop alarm_instance_prop apexd_prop }:file { open getattr };
