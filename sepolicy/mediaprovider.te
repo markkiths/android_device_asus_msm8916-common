@@ -1,2 +1,3 @@
 allow mediaprovider mnt_media_rw_file:dir getattr;
 allow mediaprovider sdcardfs:lnk_file getattr;
+allow mediaprovider cache_recovery_file:dir { read open };
