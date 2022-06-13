@@ -704,14 +704,8 @@ case "$target" in
                 echo 1 > /sys/devices/system/cpu/cpu3/online
                 echo 1 > /sys/devices/system/cpu/cpu4/online
                 
-                # Enable core control
-                echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
-                echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
-                echo 50 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
-                echo 30 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
-                echo 1000 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
-                echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/task_thres
-                echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster
+                # Disable core control for msm8916   
+		echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
             ;;
         esac
 
