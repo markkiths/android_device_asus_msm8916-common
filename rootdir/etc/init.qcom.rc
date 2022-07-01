@@ -874,10 +874,6 @@ on property:sys.boot_completed=1
 
     start spk_calibration
 
-    # Restrict permissions to socket file 
-    # to hide Magisk & co.
-    chmod 440 /proc/net/unix
-
 on property:vold.decrypt=trigger_restart_framework
     stop camera-provider-2-4
     start camera-provider-2-4
