@@ -184,8 +184,10 @@ TARGET_BOOTANIMATION_HALF_RES := true
 VENDOR_SECURITY_PATCH := 2018-02-05
 
 # Release tools
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_asus
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)/releasetools
+endif
 
 # memfd
 TARGET_HAS_MEMFD_BACKPORT := true
@@ -226,9 +228,12 @@ TARGET_LD_PRELOAD := \
     /system/lib/libboringssl-compat.so
 
 # Vendor Unification Init
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit_msm8916
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
+endif
 PRODUCT_VENDOR_MOVE_ENABLED := true
+
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

@@ -15,7 +15,9 @@
 #
 
 # inherit from the proprietary version
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 $(call inherit-product, vendor/asus/msm8916-common/msm8916-common-vendor.mk)
+endif
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -90,17 +92,29 @@ PRODUCT_PACKAGES += \
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/aanc_tuning_mixer.txt \
-    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
+
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp_ZD551KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZD551KL.xml \
-    $(LOCAL_PATH)/audio/mixer_paths_mtp_ZE600KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZE600KL.xml \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml
+    $(LOCAL_PATH)/audio/mixer_paths_mtp_ZE600KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZE600KL.xml
+endif
 
 # XML Audio configuration files
+ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/Z0X/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/Z0X/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml
+else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf
+endif
+
+PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
@@ -314,8 +328,10 @@ PRODUCT_PACKAGES += \
     resize2fs_static
 
 # Releasetools
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
+endif
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -357,6 +373,7 @@ PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
 
 # Thermal
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916-ze550kl.conf \
@@ -367,6 +384,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze551kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze551kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze600kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze601kl.conf
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine.conf
+endif
 
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
@@ -392,8 +413,14 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service
 
 # Voice recognition
+ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/audio/Z0X/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sound_trigger_mixer_paths.xml
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sound_trigger_mixer_paths.xml
+endif
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sound_trigger_platform_info.xml
 
 # WiFi HAL
@@ -422,6 +449,13 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf
 
 # WCNSS
+ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/Z0X/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
+    $(LOCAL_PATH)/wifi/Z0X/hostapd.deny:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.deny \
+    $(LOCAL_PATH)/wifi/Z0X/hostapd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \
+    $(LOCAL_PATH)/wifi/Z0X/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -434,13 +468,23 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze551kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze551kl.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze600kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze600kl.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_zx550kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_zx550kl.bin
+endif
 
 # Keylayout
+ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/Z0X/ASUS_TransKeyboard.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ASUS_TransKeyboard.kl \
+    $(LOCAL_PATH)/keylayout/Z0X/i-rocks_Bluetooth_Keyboard.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/i-rocks_Bluetooth_Keyboard.kl \
+    $(LOCAL_PATH)/keylayout/Z0X/focal-touchscreen.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/focal-touchscreen.kl \
+    $(LOCAL_PATH)/keylayout/Z0X/ft5x06_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5x06_ts.kl
+else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/ASUS_TransKeyboard.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ASUS_TransKeyboard.kl \
     $(LOCAL_PATH)/keylayout/ft5x06_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5x06_ts.kl \
+    $(LOCAL_PATH)/keylayout/msm8939-snd-card-mtp_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8939-snd-card-mtp_Button_Jack.kl
+endif
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/keylayout/msm8939-snd-card-mtp_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8939-snd-card-mtp_Button_Jack.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsx.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_rmi4_i2c.kl
 
