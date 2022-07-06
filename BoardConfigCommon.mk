@@ -219,13 +219,16 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libril-qc-qmi-1.so|libshims_ril.so \
     /system/vendor/lib64/libcneapiclient.so|libshims_cne.so \
     /system/vendor/lib64/libflp.so|libshims_flp.so \
-    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
+    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
+
+ifeq ($(shell test -e external/sony/boringssl-compat/Android.bp && echo -n yes), yes)
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
     /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so
 
 # Sp-shim
 TARGET_LD_PRELOAD := \
     /system/lib/libboringssl-compat.so
+endif
 
 # Vendor Unification Init
 ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
