@@ -385,8 +385,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze600kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze601kl.conf
 else
+ifneq ($(filter Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine.conf
+endif
+endif
+
+ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916.conf
 endif
 
 PRODUCT_PACKAGES += \
@@ -444,18 +451,21 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 # wifi
+ifneq ($(filter Z00T Z00L Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
+endif
 
 # WCNSS
-ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
+ifneq ($(filter Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/Z0X/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
     $(LOCAL_PATH)/wifi/Z0X/hostapd.deny:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.deny \
     $(LOCAL_PATH)/wifi/Z0X/hostapd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/wifi/Z0X/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 else
+ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -468,6 +478,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze551kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze551kl.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_ze600kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_ze600kl.bin \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_zx550kl.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv_zx550kl.bin
+endif
 endif
 
 # Keylayout
