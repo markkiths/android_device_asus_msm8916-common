@@ -18,7 +18,11 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
+LOCAL_SRC_FILES := Z0X/wcnss_asus_client.c
+else
 LOCAL_SRC_FILES := wcnss_asus_client.c
+endif
 
 LOCAL_C_INCLUDES += hardware/qcom-caf/wlan/wcnss_service
 LOCAL_CFLAGS += -Wall
