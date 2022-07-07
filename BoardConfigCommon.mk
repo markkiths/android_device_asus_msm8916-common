@@ -222,6 +222,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
 
 ifeq ($(shell test -e external/sony/boringssl-compat/Android.bp && echo -n yes), yes)
+TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
     /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so
 
