@@ -15,7 +15,7 @@
 #
 
 # inherit from the proprietary version
-ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
+ifeq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 $(call inherit-product, vendor/asus/msm8916-common/msm8916-common-vendor.mk)
 endif
 
@@ -98,7 +98,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
-ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
+ifeq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp_ZD551KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZD551KL.xml \
@@ -332,7 +332,7 @@ PRODUCT_PACKAGES += \
     resize2fs_static
 
 # Releasetools
-ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
+ifeq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/init.asus.sh:install/bin/init.asus.sh
 endif
@@ -377,7 +377,6 @@ PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
 
 # Thermal
-ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916-ze550kl.conf \
@@ -387,18 +386,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze550kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze550kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze551kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze551kl.conf \
     $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze600kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze601kl.conf
-else
-ifneq ($(filter Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine.conf
-endif
-endif
-
-ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916.conf
-endif
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze601kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine.conF
 
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
@@ -455,13 +444,15 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 # wifi
-ifneq ($(filter Z00T Z00L Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
+ifeq ($(filter Z00T Z00L Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
 endif
 
 # WCNSS
+ifneq ($(filter Z010D,$(TARGET_DEVICE)),)
+else
 ifneq ($(filter Z00ED Z00RD Z00xD,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/Z0X/hostapd.accept:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd.accept \
@@ -469,7 +460,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/Z0X/hostapd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/wifi/Z0X/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 else
-ifneq ($(filter Z00T Z00L,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
