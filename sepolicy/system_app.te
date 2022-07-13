@@ -8,6 +8,7 @@ allow system_app apexd:binder call;
 allow system_app device:chr_file { read write open };
 allow system_app system_file:file entrypoint;
 allow system_app privapp_data_file:dir { search getattr };
+allow system_app proc_vmallocinfo:file r_file_perms;
 
 binder_call(system_app, hal_power_default)
 
