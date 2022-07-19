@@ -82,9 +82,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
    persist.hwc.mdpcomp.enable=true \
    persist.hwc.ptor.enable=true \
    persist.hwc.pubypass=true \
-   debug.sdm.support_writeback=0 \
+   debug.sdm.support_writeback=0
+
+# SurfaceLinger
+PRODUCT_PROPERTY_OVERRIDES += \
    ro.surface_flinger.max_frame_buffer_acquired_buffers=1 \
-   ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+   ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+   debug.sf.use_phase_offsets_as_durations=1 \
+   debug.sf.late.sf.duration=27600000 \
+   debug.sf.late.app.duration=20000000 \
+   debug.sf.early.sf.duration=27600000 \
+   debug.sf.early.app.duration=20000000 \
+   debug.sf.earlyGl.sf.duration=27600000 \
+   debug.sf.earlyGl.app.duration=20000000 \
+   debug.sf.hwc.min.duration=17000000
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
