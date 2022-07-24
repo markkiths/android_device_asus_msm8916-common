@@ -77,8 +77,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.recomputecrop=0 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
-    ro.surface_flinger.supports_background_blur=false \
-    persist.sys.sf.disable_blurs=true \
     debug.sdm.support_writeback=0
 
 # DRM
