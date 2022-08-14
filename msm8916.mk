@@ -96,10 +96,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
-# Audio prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluence
-
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
@@ -331,9 +327,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
-
-# System Properties
-$(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
 
 # TextClassifier
 PRODUCT_PACKAGES += \
