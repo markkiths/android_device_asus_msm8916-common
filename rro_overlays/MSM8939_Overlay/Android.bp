@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "MSM8939_Overlay",
+    sdk_version: "current",
+    vendor: true,
+}

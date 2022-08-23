@@ -239,7 +239,9 @@ void vendor_load_properties()
 
     if (is_target_8916()) {
         property_override("ro.opengles.version", "196608");
+        property_override("ro.soc.model", "MSM8916"); /* USE FOR POWER PROFILE */
     } else {
         property_override("ro.opengles.version", "196610");
+        property_override("ro.soc.model", "MSM8939"); /* USE FOR POWER PROFILE */
     }
 }
