@@ -1,0 +1,20 @@
+on post-fs && property:ro.product.vendor.device=ASUS_Z00M
+    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZE600KL.xml
+
+on post-fs && property:ro.product.vendor.device=ASUS_Z011
+    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZE600KL.xml
+
+on post-fs && property:ro.product.vendor.device=ASUS_Z00U
+    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZD551KL.xml
+
+on post-fs && property:ro.product.vendor.model=ASUS_Z00ED
+    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
+    mount none /vendor/usr/keylayout/ft5x06_ts_Z00xD.kl /usr/keylayout/ft5x06_ts.kl bind
+    mount none /system/lib/libwcnss_qmi_Z00xD.so /system/lib/libwcnss_qmi.so bind
+    mount none /system/lib64/libwcnss_qmi_Z00xD.so /system/lib64/libwcnss_qmi.so bind
+
+on post-fs && property:ro.product.vendor.model=ASUS_Z00RD
+    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
+    mount none /vendor/usr/keylayout/ft5x06_ts_Z00xD.kl /usr/keylayout/ft5x06_ts.kl bind
+    mount none /system/lib/libwcnss_qmi_Z00xD.so /system/lib/libwcnss_qmi.so bind
+    mount none /system/lib64/libwcnss_qmi_Z00xD.so /system/lib64/libwcnss_qmi.so bind

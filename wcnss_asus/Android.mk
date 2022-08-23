@@ -18,11 +18,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-ifneq ($(filter Z00ED Z00RD Z00xD Z010D,$(TARGET_DEVICE)),)
-LOCAL_SRC_FILES := Z0X/wcnss_asus_client.c
-else
 LOCAL_SRC_FILES := wcnss_asus_client.c
-endif
 
 LOCAL_C_INCLUDES += hardware/qcom-caf/wlan/wcnss_service
 LOCAL_CFLAGS += -Wall
@@ -31,5 +27,19 @@ LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libwcnss_qmi
+
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := wcnss_asus_Z00xD_client.c
+
+LOCAL_C_INCLUDES += hardware/qcom-caf/wlan/wcnss_service
+LOCAL_CFLAGS += -Wall
+
+LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
+
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := libwcnss_qmi_Z00xD
 
 include $(BUILD_SHARED_LIBRARY)
