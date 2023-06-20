@@ -49,6 +49,9 @@ TARGET_NO_BOOTLOADER := true
 BOARD_DTBTOOL_ARGS := -3
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=7
+ifneq ($(filter Z00xD,$(TARGET_DEVICE)),)
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+endif
 KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
