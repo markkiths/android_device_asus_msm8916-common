@@ -402,7 +402,8 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi_Z00xD \
     libwpa_client \
     wificond \
-    WifiOverlay
+    WifiOverlay \
+    WifiOverlay_5Ghz
 
 PRODUCT_PACKAGES += \
     wcnss_service
