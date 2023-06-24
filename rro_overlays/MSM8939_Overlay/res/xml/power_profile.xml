@@ -23,6 +23,7 @@
     <array name="cpu.clusters.cores">
         <value>4</value>
         <value>4</value>
+    </array>
     <array name="cpu.core_speeds.cluster0">
         <value>200000</value>
         <value>345600</value>
