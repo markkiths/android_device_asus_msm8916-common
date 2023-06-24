@@ -231,6 +231,16 @@ int device_model_get()
     return ret;
 }
 
+void set_avoid_gfxaccel_config() {
+    struct sysinfo sys;
+    sysinfo(&sys);
+
+    if (sys.totalram <= 2048ull * 1024 * 1024) {
+        // Reduce memory footprint
+        property_override("ro.config.avoid_gfx_accel", "true");
+    }
+}
+
 void vendor_load_properties()
 {
     char b_description[PROP_VALUE_MAX], b_fingerprint[PROP_VALUE_MAX];
@@ -267,15 +277,6 @@ void vendor_load_properties()
     property_override("dalvik.vm.heaptargetutilization", "0.75");
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", "8m");
-
-void set_avoid_gfxaccel_config() {
-    struct sysinfo sys;
-    sysinfo(&sys);
-
-    if (sys.totalram <= 2048ull * 1024 * 1024) {
-        // Reduce memory footprint
-        property_override("ro.config.avoid_gfx_accel", "true");
-    }
 
     if (is_target_8916()) {
         property_override("ro.opengles.version", "196608");
