@@ -234,16 +234,6 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib64/libflp.so|libshims_flp.so \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so
 
-ifeq ($(shell test -e external/sony/boringssl-compat/Android.bp && echo -n yes), yes)
-TARGET_LD_SHIM_LIBS += \
-    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
-    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so
-
-# Sp-shim
-TARGET_LD_PRELOAD += \
-    /system/lib/libboringssl-compat.so
-endif
-
 # Vendor Unification Init
 TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit_msm8916
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
