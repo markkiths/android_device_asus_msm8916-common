@@ -685,16 +685,16 @@ case "$target" in
                 echo 0 > /sys/module/msm_thermal/core_control/enabled
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-                echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 533333 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 # enable thermal core_control now
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
 
                 echo "25000 1094400:50000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
                 echo 90 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
                 echo 30000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-                echo 998400 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+                echo 1209600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "1 800000:85 998400:90 1094400:80" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+                echo "1 200000:37 400000:48 533333:56 800000:63 998400:69 1094400:77 1152000:83 1209600:90" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
                 echo 50000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 50000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
 
@@ -704,8 +704,8 @@ case "$target" in
                 echo 1 > /sys/devices/system/cpu/cpu3/online
                 echo 1 > /sys/devices/system/cpu/cpu4/online
                 
-                # Disable core control for msm8916   
-		echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
+                # Enable core control for msm8916   
+		echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/enable
             ;;
         esac
 
