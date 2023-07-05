@@ -29,17 +29,3 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libwcnss_qmi
 
 include $(BUILD_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := wcnss_asus_Z00xD_client.c
-
-LOCAL_C_INCLUDES += hardware/qcom-caf/wlan/wcnss_service
-LOCAL_CFLAGS += -Wall
-
-LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
-
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := libwcnss_qmi_Z00xD
-
-include $(BUILD_SHARED_LIBRARY)

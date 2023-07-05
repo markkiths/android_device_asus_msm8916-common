@@ -398,7 +398,6 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
-    libwcnss_qmi_Z00xD \
     libwpa_client \
     wificond \
     WifiOverlay \
