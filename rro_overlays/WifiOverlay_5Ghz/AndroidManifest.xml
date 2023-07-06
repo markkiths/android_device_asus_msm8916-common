@@ -19,8 +19,8 @@
     <overlay
       android:targetPackage="com.android.wifi.resources"
       android:targetName="WifiCustomization"
-      android:requiredSystemPropertyName="ro.product.model"
-      android:requiredSystemPropertyValue="+(Z00U|Z00M|Z011|Z00C)"
+      android:requiredSystemPropertyName="ro.wifi.dualband.msm8916"
+      android:requiredSystemPropertyValue="true"
       android:isStatic="true"
       android:priority="0"/>
 </manifest>
