@@ -15,8 +15,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter Z00T Z00L Z00RD Z00ED Z010D Z00xD,$(TARGET_DEVICE)),)
-
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
@@ -136,5 +134,3 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /system/vendor/lib64/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
-
-endif
