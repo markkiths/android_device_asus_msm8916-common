@@ -1,17 +1,17 @@
 # Audio
-on property::ro.product.vendor.device=ASUS_Z00M
+on property:ro.product.vendor.device=ASUS_Z00M
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZE600KL.xml
-on property::ro.product.vendor.device=ASUS_Z011
+on property:ro.product.vendor.device=ASUS_Z011
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZE600KL.xml
-on property::ro.product.vendor.device=ASUS_Z00U
+on property:ro.product.vendor.device=ASUS_Z00U
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZD551KL.xml
-on property::ro.product.vendor.model=ASUS_Z00ED
+on property:ro.product.vendor.model=ASUS_Z00ED
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
-on property::ro.product.vendor.model=ASUS_Z00RD
+on property:ro.product.vendor.model=ASUS_Z00RD
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
 
-on property::ro.product.vendor.model=ASUS_Z00ED
+on property:ro.product.vendor.model=ASUS_Z00ED
     mount none /vendor/usr/keylayout/ft5x06_ts_Z00xD.kl /usr/keylayout/ft5x06_ts.kl bind
 
-on property::ro.product.vendor.model=ASUS_Z00RD
+on property:ro.product.vendor.model=ASUS_Z00RD
     mount none /vendor/usr/keylayout/ft5x06_ts_Z00xD.kl /usr/keylayout/ft5x06_ts.kl bind
