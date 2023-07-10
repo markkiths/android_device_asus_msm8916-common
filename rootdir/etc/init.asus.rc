@@ -10,6 +10,11 @@ on property:ro.product.vendor.model=ASUS_Z00ED
 on property:ro.product.vendor.model=ASUS_Z00RD
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
 
+# Media
+on property:ro.soc.model=MSM8939
+    setprop ro.media.xml_variant.codecs _8939
+    setprop ro.media.xml_variant.codecs_performance _8939
+
 on property:ro.product.vendor.model=ASUS_Z00ED
     mount none /vendor/usr/keylayout/ft5x06_ts_Z00xD.kl /usr/keylayout/ft5x06_ts.kl bind
 
