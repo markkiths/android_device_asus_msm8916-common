@@ -23,6 +23,9 @@ endif
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+QCOM_SOONG_NAMESPACE := \
+    $(LOCAL_PATH)/qcom-caf
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
