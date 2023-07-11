@@ -227,7 +227,7 @@ PRODUCT_BOOT_JARS += \
 
 # Touch HAL
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.asus_8953
+    vendor.lineage.touch@1.0-service.asus_8916
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
@@ -246,7 +246,7 @@ PRODUCT_PACKAGES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.asus_8953
+    android.hardware.light@2.0-service.asus_8916
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
