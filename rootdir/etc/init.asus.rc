@@ -1,14 +1,32 @@
 # Audio
-on property:ro.product.vendor.device=ASUS_Z00M
-    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZE600KL.xml
-on property:ro.product.vendor.device=ASUS_Z011
-    setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZE600KL.xml
 on property:ro.product.vendor.device=ASUS_Z00U
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_ZD551KL.xml
 on property:ro.product.vendor.model=ASUS_Z00ED
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
 on property:ro.product.vendor.model=ASUS_Z00RD
     setprop vendor.audio.mixer_xml.path /vendor/etc/mixer_paths_mtp_Z00xD.xml
+
+on property:ro.audio.patch=true
+    # XML
+    mount none /vendor/etc/patch/audio_platform_info.xml /vendor/etc/audio_platform_info.xml bind
+    mount none /vendor/etc/patch/mixer_paths_mtp_ZE600KL.xml /vendor/etc/mixer_paths_mtp.xml bind
+    # lib
+    mount none /vendor/lib/patch/hw/audio.primary.default.so /vendor/lib/hw/audio.primary.default.so bind
+    mount none /vendor/lib/patch/hw/audio.primary.msm8916.so /vendor/lib/hw/audio.primary.msm8916.so bind
+    mount none /vendor/lib/patch/hw/audio_amplifier.msm8916.so /vendor/lib/hw/audio_amplifier.msm8916.so bind
+    mount none /vendor/lib/patch/libacdb-fts.so /vendor/lib/libacdb-fts.so bind
+    mount none /vendor/lib/patch/libacdbloader.so /vendor/lib/libacdbloader.so bind
+    mount none /vendor/lib/patch/libacdbmapper.so /vendor/lib/libacdbmapper.so bind
+    mount none /vendor/lib/patch/libacdbrtac.so /vendor/lib/libacdbrtac.so bind
+    # lib64
+    mount none /vendor/lib64/patch/hw/audio.primary.default.so /vendor/lib64/hw/audio.primary.default.so bind
+    mount none /vendor/lib64/patch/hw/audio.primary.msm8916.so /vendor/lib64/hw/audio.primary.msm8916.so bind
+    mount none /vendor/lib64/patch/hw/audio_amplifier.msm8916.so /vendor/lib64/hw/audio_amplifier.msm8916.so bind
+    mount none /vendor/lib64/patch/libacdb-fts.so /vendor/lib64/libacdb-fts.so bind
+    mount none /vendor/lib64/patch/libacdbloader.so /vendor/lib64/libacdbloader.so bind
+    mount none /vendor/lib64/patch/libacdbmapper.so /vendor/lib64/libacdbmapper.so bind
+    mount none /vendor/lib64/patch/libacdbrtac.so /vendor/lib64/libacdbrtac.so bind
+    restart vendor.audio-hal
 
 # Media
 on property:ro.soc.model=MSM8939

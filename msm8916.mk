@@ -107,7 +107,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp_ZD551KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZD551KL.xml \
-    $(LOCAL_PATH)/audio/mixer_paths_mtp_ZE600KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZE600KL.xml \
+    $(LOCAL_PATH)/audio/mixer_paths_mtp_ZE600KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/patch/mixer_paths_mtp_ZE600KL.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp_Z00xD.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_Z00xD.xml
 
 # XML Audio configuration files

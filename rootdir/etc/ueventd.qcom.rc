@@ -165,6 +165,8 @@
 
 # TFA
 /dev/i2c-6                0660   media      media
+/dev/tfa9887              0660   system     audio
+/dev/tfa9887l             0660   system     audio
 
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
