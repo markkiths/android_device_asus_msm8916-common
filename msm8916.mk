@@ -33,7 +33,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     MSM8916_Overlay \
-    MSM8939_Overlay
+    MSM8939_Overlay \
+    ZenfoneSettingsProviderOverlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
