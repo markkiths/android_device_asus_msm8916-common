@@ -1,0 +1,8 @@
+cc_library_shared {
+    name: "audio_amplifier.msm8916",
+    relative_install_path: "hw",
+    vendor: true,
+    shared_libs: [
+        "libhidlbase",
+    ],
+}
