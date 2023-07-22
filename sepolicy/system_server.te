@@ -8,7 +8,8 @@ allow system_server init:binder call;
 allow system_server { crash_dump app_zygote }:process getpgid;
 allow system_server exfat:dir rw_dir_perms;
 allow system_server sensors_data_file:file rw_file_perms;
-allow system_server system_data_root_file:dir rw_file_perms;
+allow system_server system_data_root_file:dir { rw_file_perms add_name };
+allow system_server system_data_root_file:file { rw_file_perms create };
 
 r_dir_file(system_server, fac_file)
 r_dir_file(system_server, persist_file)
