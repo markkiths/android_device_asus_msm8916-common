@@ -36,6 +36,9 @@ PRODUCT_PACKAGES += \
     MSM8939_Overlay \
     ZenfoneSettingsProviderOverlay
 
+# System Properties
+$(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
