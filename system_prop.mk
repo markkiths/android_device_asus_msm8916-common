@@ -145,8 +145,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
    ril.subscription.types=NV,RUIM \
    ro.telephony.call_ring.multiple=false \
-   ro.telephony.default_network=9,9 \
-   rild.libargs=-d /dev/smd0
+   ro.telephony.default_network=9,9
 
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
