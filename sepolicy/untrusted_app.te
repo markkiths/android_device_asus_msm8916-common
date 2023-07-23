@@ -1,8 +1,0 @@
-allow untrusted_app { sysfs_net proc_asound sysfs_lowmemorykiller rootfs block_device }:dir { read  open search };
-allow untrusted_app { sysfs rootfs proc_vmstat proc_net_tcp_udp proc proc_zoneinfo proc_version bg_daemon_prop bg_boot_complete_prop alarm_instance_prop alarm_handled_prop proc_version wifi_prop bg_boot_complete_prop alarm_boot_prop runtime_event_log_tags_file serialno_prop proc_qtaguid_stat }:file { open read };
-allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
-allow untrusted_app hal_memtrack_hwservice:binder call;
-allow untrusted_app app_data_file:file execute_no_trans;
-allow untrusted_app postinstall_mnt_dir:dir getattr;
-allow untrusted_app adbd_prop:file { open getattr };
-allow untrusted_app { alarm_boot_prop alarm_handled_prop alarm_instance_prop apexd_prop }:file { open getattr };

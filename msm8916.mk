@@ -33,7 +33,11 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     MSM8916_Overlay \
-    MSM8939_Overlay
+    MSM8939_Overlay \
+    ZenfoneSettingsProviderOverlay
+
+# System Properties
+$(call inherit-product, $(LOCAL_PATH)/system_prop.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -83,9 +87,13 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
 
+# Killed AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm8916 \
+    audio_amplifier.msm8916 \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default
@@ -107,7 +115,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp_ZD551KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZD551KL.xml \
-    $(LOCAL_PATH)/audio/mixer_paths_mtp_ZE600KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_ZE600KL.xml \
+    $(LOCAL_PATH)/audio/mixer_paths_mtp_ZE600KL.xml:$(TARGET_COPY_OUT_VENDOR)/etc/patch/mixer_paths_mtp_ZE600KL.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp_Z00xD.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_Z00xD.xml
 
 # XML Audio configuration files
@@ -352,16 +360,16 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8916-ze550kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8929-ze600kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8929-ze600kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-zd550kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-zd550kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze550kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze550kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze551kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze551kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze600kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-8939-ze601kl.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine.conf
+    $(LOCAL_PATH)/thermal/thermal-engine-8916.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8916.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8916-ze550kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8916-ze550kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8929-ze600kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8929-ze600kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-zd550kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939-zd550kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze550kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939-ze550kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze551kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939-ze551kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze600kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939-ze600kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine-8939-ze601kl.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939-ze601kl.conf \
+    $(LOCAL_PATH)/thermal/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
 
 # TimeKeep
 PRODUCT_PACKAGES += \

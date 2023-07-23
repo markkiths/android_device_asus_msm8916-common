@@ -54,6 +54,7 @@ char const *buildnumber;
 char const *builddate;
 char const *dualband;
 char const *product;
+char const *audiopatch;
 
 void check_device()
 {
@@ -84,12 +85,14 @@ void check_device()
                 builddate = "20170803";
                 dualband = "false"; /* USE FOR WIFI 5Ghz */
                 product = "ZE550KG";
+                audiopatch = "false"; /* USE FOR FIXED AUDIO */
             } else {
                 device = "Z00L"; // ZE550KL
                 buildnumber = "2179";
                 builddate = "20170803";
                 dualband = "false"; /* USE FOR WIFI 5Ghz */
                 product = "ZE550KL";
+                audiopatch = "false"; /* USE FOR FIXED AUDIO */
             }
         } else if (PRJ_ID == 1) {
             device = "Z00M"; // ZE600KL
@@ -97,6 +100,7 @@ void check_device()
             builddate = "20170719";
             dualband = "true"; /* USE FOR WIFI 5Ghz */
             product = "ZE600KL";
+            audiopatch = "true"; /* USE FOR FIXED AUDIO */
         }
 
         // from - phone-xhdpi-2048-dalvik-heap.mk
@@ -112,24 +116,28 @@ void check_device()
             builddate = "20170224";
             dualband = "false"; /* USE FOR WIFI 5Ghz */
             product = "ZE551KL";
+            audiopatch = "false"; /* USE FOR FIXED AUDIO */
         } else if (PRJ_ID == 1) {
             device = "Z011"; // ZE601KL
             buildnumber = "2170";
             builddate = "20170719";
             dualband = "true"; /* USE FOR WIFI 5Ghz */
             product = "ZE601KL";
+            audiopatch = "true"; /* USE FOR FIXED AUDIO */
         } else if (PRJ_ID == 2) {
             device = "Z00C"; // ZX550KL
             buildnumber = "2056";
             builddate = "20170224";
             dualband = "true"; /* USE FOR WIFI 5Ghz */
             product = "ZX550KL";
+            audiopatch = "false"; /* USE FOR FIXED AUDIO */
         } else if (PRJ_ID == 3) {
             device = "Z00U"; // ZD551KL
             buildnumber = "2214";
             builddate = "20171110";
             dualband = "true"; /* USE FOR WIFI 5Ghz */
             product = "ZD551KL";
+            audiopatch = "false"; /* USE FOR FIXED AUDIO */
         }
 
         if (sys.totalram > 2048ull * 1024 * 1024) {
@@ -289,6 +297,7 @@ void vendor_load_properties()
     property_override_triple("ro.product.model", "ro.product.system.model", "ro.product.vendor.model", p_model);
     property_override("ro.wifi.dualband.msm8916", dualband); /* USE FOR WIFI 5Ghz */
     property_override("ro.product.name", product);
+    property_override("ro.audio.patch", audiopatch);
 
     property_override("dalvik.vm.heapstartsize", heapstartsize);
     property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
@@ -314,6 +323,7 @@ void vendor_load_properties()
         property_override("ro.product.name", "ZE500KL");
         property_override("ro.product.carrier", "US-ASUS_Z00ED-WW_Phone");
         property_override("ro.wifi.dualband.msm8916", "false"); /* USE FOR WIFI 5Ghz */
+        property_override("ro.audio.patch", "false"); /* USE FOR FIXED AUDIO */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z00E_2:6.0.1/MMB29P/13.1010.1612.53-20170202:user/release-keys");
         property_override_triple("ro.build.description", "ro.system.build.description", "ro.vendor.description", "WW_Phone-user 6.0.1 MMB29P 13.1010.1612.53-20170202 release-keys");
     } else if (device_model == 2) {
@@ -322,6 +332,7 @@ void vendor_load_properties()
         property_override("ro.product.name", "ZE500KG");
         property_override("ro.product.carrier", "US-ASUS_Z00RD-WW_Phone");
         property_override("ro.wifi.dualband.msm8916", "false"); /* USE FOR WIFI 5Ghz */
+        property_override("ro.audio.patch", "false"); /* USE FOR FIXED AUDIO */
         property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z00E_2:6.0.1/MMB29P/13.1010.1612.53-20170202:user/release-keys");
         property_override_triple("ro.build.description", "ro.system.build.description", "ro.vendor.description", "WW_Phone-user 6.0.1 MMB29P 13.1010.1612.53-20170202 release-keys");
     }
