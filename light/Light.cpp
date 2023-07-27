@@ -139,7 +139,20 @@ void Light::setSpeakerLightLocked(const LightState& state) {
     int red, green, blink;
     int totalMs, pwm, fake_pwm;
     int onMs, offMs;
-    uint32_t colorRGB = state.color;
+    uint32_t alpha;
+
+    // Extract brightness from AARRGGBB
+    alpha = (state.color >> 24) & 0xff;
+
+    // Retrieve each of the RGB colors
+    red = (state.color >> 16) & 0xff;
+    green = (state.color >> 8) & 0xff;
+
+    // Scale RGB colors if a brightness has been applied by the user
+    if (alpha != 0xff) {
+        red = (red * alpha) / 0xff;
+        green = (green * alpha) / 0xff;
+    }
 
     switch (state.flashMode) {
         case Flash::TIMED:
@@ -152,10 +165,6 @@ void Light::setSpeakerLightLocked(const LightState& state) {
             offMs = 0;
             break;
     }
-
-    red = (colorRGB >> 16) & 0xFF;
-    green = (colorRGB >> 8) & 0xFF;
-
     blink = onMs > 0 && offMs > 0;
 
     // Disable all blinking to start
